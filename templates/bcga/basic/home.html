@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <title>Home</title>
+    <style>
+        .parent:hover .child {
+            display: block;
+        }
+        .parent2:hover .child2 {
+            display: block;
+        }
+        .carousel {
+            display: flex;
+            overflow: hidden;
+        }
+        .carousel-inner {
+            transition: transform 0.3s ease-in-out;
+        }
+        .carousel-slide {
+            flex: 0 0 100%;
+        }
+        .carousel-control {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body id="home">
+    <div class="lg:h-screen h-screen w-full">
+        <div class="absolute  w-full">
+            <img class="lg:h-screen h-screen w-full" src="https://th.bing.com/th/id/OIP.bXeJ_pb9EdW1X7BBZE_OegHaHa?pid=ImgDet&w=600&h=600&rs=1" alt="">
+        </div>
+        <div class="relative">
+            <header class="text-[16px] font-semibold uppercase">
+                <nav class=" p-4">
+                    <div class=" flex justify-between items-center">
+                        <div class="text-white font-bold text-xl">
+                            <a href="#"><img class="h-[50px] lg:h-[100px] w-[54.475px] lg:w-[108.963px]" src="https://th.bing.com/th/id/R.572e4f51d0a4d67669784df53026b5a7?rik=lv9i04y8yl33Dg&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2f3%2f33%2fVanamo_Logo.png&ehk=Ix3NOUWRAegY6L3gmUWwTNm0Gee%2faq3jB0ZwGhiKFRk%3d&risl=&pid=ImgRaw&r=0" alt=""></a>
+                        </div>
+                        <div class="hidden lg:block space-x-6">
+                            <a href="#" class="text-white">Home</a>
+                            <div class="relative parent inline-block text-left">
+                                <a href="#" class="text-white">Podcasts</a>
+                                <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]">
+                                    <!-- Dropdown items go here -->
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Conversing Crime</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Intelligence Espresso</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Sips & Quips</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Spin-Off Series</a>
+                                </div>
+                            </div>
+                            <div class="relative parent inline-block text-left">
+                                <a href="#" class="text-white">Interviews</a>
+                                <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]">
+                                    <!-- Dropdown items go here -->
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Conversing Covid</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Covid Continues</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Single pieces</a>
+                                </div>
+                            </div>
+                            <div class="relative parent inline-block text-left">
+                                <a href="#" class="text-white">Topics</a>
+                                <div class="hidden absolute child z-10 py-2 w-[350px] bg-[#212121]">
+                                    <!-- Dropdown items go here -->
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">All Articles</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Arms and Disarmament</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Environmental and Energy Security</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Foreign Policy</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Gender and Security</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Human Security</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Intelligence</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">National Security</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Organised Crime</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Political Affairs</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Public health</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Technology</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Terrorism</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Theories, Concepts and Approaches</a>
+                                </div>
+                            </div>
+                            <div class="relative parent inline-block text-left">
+                                <a href="#" class="text-white">Regions</a>
+                                <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]">
+                                    <!-- Dropdown items go here -->
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Asia Pacific</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">South Asia</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Africa</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Europe</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Middle East</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">North America</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Latin America</a>
+                                </div>
+                            </div>                                                                  
+                            <div class="relative parent inline-block text-left">
+                                <a href="#" class="text-white">Events</a>
+                                <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]">
+                                    <!-- Dropdown items go here -->
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Past Events</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Upcoming Events</a>
+                                </div>
+                            </div>
+                            <a href="#" class="text-white">Event Reports</a>
+                            <div class="relative parent inline-block text-left">
+                                <a href="#" class="text-white">About</a>
+                                <div class="hidden absolute child z-10 py-2 w-[120px] bg-[#212121]">
+                                    <!-- Dropdown items go here -->
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">About Us</a>
+                                    <div class="relative parent2 inline-block text-left">
+                                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Our Team</a>
+                                        <div class="hidden absolute child2 z-10 ml-[80px] py-2 w-[120px] bg-[#212121]">
+                                            <!-- Dropdown items go here -->
+                                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Faculty</a>
+                                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Student</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="text-white">Archive</a>
+                            <a href="#" class="text-white border-2 border-solid border-white py-2 px-4 rounded-2xl hover:bg-white hover:text-black">Contact Us</a>
+                        </div>
+                        <div class="md:hidden">
+                            <button id="menu_toggle" class="text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-8 w-8">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+                <div id="sidebar" class="lg:hidden fixed top-0 left-0 h-screen bg-[#212121] w-64 text-white transform -translate-x-full transition-transform duration-300 ease-in-out">
+                    <div class="flex justify-end p-4" >
+                        <div id="close">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                              </svg>
+                        </div>
+                    </div>
+                    <div class="flex flex-col  space-y-4 p-4">
+                            <a href="#" class="text-white">Home</a>
+                            
+                            <div class="relative parent inline-block text-left">
+                                <div class="flex items-center space-x-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="bg-white" height="1em" viewBox="0 0 448 512">
+                                    <!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" stroke="white"/>
+                                    </svg>
+                                    <a href="#" class="text-white">Podcasts</a>
+                                </div>
+                                <div class="hidden absolute child z-10 ml-[135px] mt-[-35px] py-2 w-[250px] bg-[#212121]">
+                                    <!-- Dropdown items go here -->
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Conversing Crime</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Intelligence Espresso</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Sips & Quips</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Spin-Off Series</a>
+                                </div>
+                            </div>
+                            
+                            <div class="relative parent inline-block text-left">
+                                <div class="flex items-center space-x-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="bg-white" height="1em" viewBox="0 0 448 512">
+                                    <!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" stroke="white"/>
+                                    </svg>
+                                    <a href="#" class="text-white">Topics</a>
+                                </div>
+                                <div class="hidden absolute child z-10 ml-[135px] mt-[-35px] py-2 w-[250px] bg-[#212121]">
+                                    <!-- Dropdown items go here -->
+                                    <a href="#" class="block px-4 py-1 text-white text-[14px]">All Articles</a>
+                                    <a href="#" class="block px-4 py-1 text-white text-[14px]">Arms and Disarmament</a>
+                                    <a href="#" class="block px-4 py-1 text-white text-[14px]">Environmental and Energy Security</a>
+                                    <a href="#" class="block px-4 py-1 text-white text-[14px]">Foreign Policy</a>
+                                    <a href="#" class="block px-4 py-1 text-white text-[14px]">Gender and Security</a>
+                                    <a href="#" class="block px-4 py-1 text-white text-[14px]">Human Security</a>
+                                    <a href="#" class="block px-4 py-1 text-white text-[14px]">Intelligence</a>
+                                    <a href="#" class="block px-4 py-1 text-white text-[14px]">National Security</a>
+                                    <a href="#" class="block px-4 py-1 text-white text-[14px]">Organised Crime</a>
+                                    <a href="#" class="block px-4 py-1 text-white text-[14px]">Political Affairs</a>
+                                    <a href="#" class="block px-4 py-1 text-white text-[14px]">Public health</a>
+                                    <a href="#" class="block px-4 py-1 text-white text-[14px]">Technology</a>
+                                    <a href="#" class="block px-4 py-1 text-white text-[14px]">Terrorism</a>
+                                    <a href="#" class="block px-4 py-1 text-white text-[14px]">Theories,Concepts and Approaches</a>
+                                </div>
+                            </div>
+                            <div class="relative parent inline-block text-left">
+                                <div class="flex items-center space-x-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="bg-white" height="1em" viewBox="0 0 448 512">
+                                    <!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" stroke="white"/>
+                                    </svg>
+                                    <a href="#" class="text-white">Interviews</a>
+                                </div>
+                                <div class="hidden absolute child z-10 ml-[135px] mt-[-35px] py-2 w-[250px] bg-[#212121]">
+                                    <!-- Dropdown items go here -->
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Conversing Covid</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Covid Continues</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Single pieces</a>
+                                </div>
+                            </div>
+                            <div class="relative parent inline-block text-left">
+                                <div class="flex items-center space-x-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="bg-white" height="1em" viewBox="0 0 448 512">
+                                    <!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" stroke="white"/>
+                                    </svg>
+                                    <a href="#" class="text-white">Regions</a>
+                                </div>
+                                <div class="hidden absolute child z-10 ml-[135px] mt-[-35px] py-2 w-[250px] bg-[#212121]">
+                                    <!-- Dropdown items go here -->
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Asia Pacific</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">South Asia</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Africa</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Europe</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Middle East</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">North America</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Latin America</a>
+                                </div>
+                            </div>
+                            <div class="relative parent inline-block text-left">
+                                <div class="flex items-center space-x-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="bg-white" height="1em" viewBox="0 0 448 512">
+                                    <!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" stroke="white"/>
+                                    </svg>
+                                    <a href="#" class="text-white">Events</a>
+                                </div>
+                                <div class="hidden absolute child z-10 ml-[135px] mt-[-35px] py-2 w-[250px] bg-[#212121]">
+                                    <!-- Dropdown items go here -->
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Past Events</a>
+                                    <a href="#" class="block px-4 py-2 text-white text-[14px]">Upcoming Events</a>
+                                </div>
+                            </div>
+                            <a href="#" class="text-white">Event Reports</a>
+                            <div class="relative parent inline-block text-left">
+                                <div class="flex items-center space-x-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="bg-white" height="1em" viewBox="0 0 448 512">
+                                    <!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" stroke="white"/>
+                                    </svg>
+                                    <a href="#" class="text-white">About</a>
+                                </div>
+                                <div class="hidden absolute child z-10 ml-[135px] mt-[-35px] py-2 w-[250px] bg-[#212121]">
+                                    <!-- Dropdown items go here -->
+                                    <a href="#" class="block py-2 text-white text-[14px]">About Us</a>
+                                    <div class="relative parent2 inline-block text-left">
+                                            <div class="flex items-center space-x-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="bg-white" height="1em" viewBox="0 0 448 512">
+                                                <!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" stroke="white"/>
+                                                </svg>
+                                                <a href="#" class="block py-2 text-white text-[14px]">Our Team</a>
+                                            </div>
+                                            <div class="hidden absolute child2 z-10 ml-[100px] mt-[-20px] py-2 w-[150px] bg-[#212121]">
+                                                <!-- Dropdown items go here -->
+                                                <a href="#" class="block px-4 py-2 text-white text-[14px]">Faculty</a>
+                                                <a href="#" class="block px-4 py-2 text-white text-[14px]">Student</a>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="text-white">Archive</a>
+                        </div>
+                        <div class="mt-[150px] p-4 w-[100%]">
+                            <a href="#" class="text-white w-[100%] text-center border-2 border-solid border-white py-2 px-4 rounded-2xl hover:bg-white hover:text-black">Contact Us</a>
+                        </div>
+                </div>
+            </header>
+            <div class="lg:p-[0px] p-[32px] lg:mt-[100px] text-[#fff] text-center flex flex-col justify-center items-center space-y-4">
+                <h1 class="italic lg:text-[24px] text-[16px]">Simplifying Matters</h1>
+                <h1 class="text-[36px] font-semibold">SECURITY DISTILLERY</h1>
+                <div class="flex flex-col justify-center items-center">
+                    <h1 class="italic lg:text-[24px] text-[16px] text-center">The Security Distillery is an initiative from students for students.</h1>
+                    <h1 class="italic lg:text-[24px] text-[16px] text-center">We aim to turn complex security issues into simple, quality, accessible information for</h1>
+                    <h1 class="italic lg:text-[24px] text-[16px] text-center">students and researchers.</h1>
+                </div>
+                <a href="#" class="text-white uppercase bg-[#1989ae] py-2 px-6 rounded-2xl hover:bg-[#1191bb] font-semibold">Learn More</a>
+            </div>
+        </div>
+    </div>
+    <main class="">
+        <div class="lg:mx-[210px] mx-0 lg:px-[32px] lg:px-[20px] px-0 lg:pt-[96px] pt-[40px]">
+            <div class="flex lg:flex-row flex-col justify-between">
+                <div class="lg:w-[50%] w-full px-[17px]">
+                    <h1 class="font-bold text-[25px] uppercase text-[rgba(26,26,26,.7)]">Accessible Information for Students and Researchers</h1>
+                </div>
+                <div class="lg:w-[50%] w-full mt-[30px] lg:mt-2">
+                    <div class="flex items-center justify-center w-[100%] px-[17px]">
+                        <div class="flex justify-between space-x-2 text-gray-600 w-[100%]">
+                            <input type="text" class="border-2 border-gray-300 bg-white h-[50px] px-5 pr-10 w-[100%] text-sm focus:outline-none" placeholder="Search...">
+                            <a href="#" class="text-white uppercase bg-blue-500 py-3 px-5 hover:opacity-90 font-semibold">SUBSCRIBE</a>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="p-[17px] mt-[30px]">
+                <div class="flex justify-between">
+                    <div>
+                        <h1 class="font-semibold uppercase text-[rgba(26,26,26,.7)]">MOST RECENT ARTICLES</h1>
+                    </div>
+                    <div class="flex justify-end">
+                            <!-- Left Arrow Button -->
+                        <button class="carousel-control " id="prevButton">
+                            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                            </svg>
+                        </button>
+                        
+                        <!-- Right Arrow Button -->
+                        <button class="carousel-control " id="nextButton">
+                            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <div class="">
+                        <div class="carousel ">
+                            <div class="carousel-inner flex justify-between w-full">
+                                <!-- Slide 1 -->
+                                <div class="carousel-slide flex w-full">
+                                    <div class="flex flex-col lg:flex-row justify-between w-full">
+                                        <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
+                                            <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
+                                            <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">DRUGS AND DIPLOMACY IN SYRIA</a>
+                                            <div>
+                                                <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
+                                                <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
+                                            </div>
+                                            <p>This article tackles the involvement of the Syrian government in drug trafficking, to then delve into and evaluate the economic, diplomatic and military measures undertaken by Western governments and Arab states to curtail the smuggling of Captagon.</p>
+                                            <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
+                                        </div>
+                                        <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
+                                            <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
+                                            <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">DRUGS AND DIPLOMACY IN SYRIA</a>
+                                            <div>
+                                                <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
+                                                <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
+                                            </div>
+                                            <p>The crisis in Sudan has unfolded due to the outbreak of conflict between the Rapid Support Force (RSF) and the Sudanese Armed Forces (SAF), which has resulted in mass civilian displacement and a dire need for aid throughout the country [1]. These events echo the Somalian human security crisis of 1993 resulted in the starvation of 300,000 Somalis due to regime collapse and conflict between several rival factions [2]. Despite clear differences between these two cases, the similarities of their outcomes are clear, as both conflicts have produced mass food insecurity, civilian suffering, and potential regional instability [3]. A lack of institutional stability has been a common causal factor in their human security crises [4].</p>
+                                            <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
+                                        </div>
+                                        <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
+                                            <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
+                                            <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">DRUGS AND DIPLOMACY IN SYRIA</a>
+                                            <div>
+                                                <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
+                                                <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
+                                            </div>
+                                            <p>This article tackles the involvement of the Syrian government in drug trafficking, to then delve into and evaluate the economic, diplomatic and military measures undertaken by Western governments and Arab states to curtail the smuggling of Captagon.</p>
+                                            <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 2 -->
+                                <div class="carousel-slide flex w-[100%]">
+                                    <div class="flex flex-col lg:flex-row justify-between w-[100%]">
+                                        <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
+                                            <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
+                                            <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">SAMRAT</a>
+                                            <div>
+                                                <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
+                                                <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
+                                            </div>
+                                            <p>This article tackles the involvement of the Syrian government in drug trafficking, to then delve into and evaluate the economic, diplomatic and military measures undertaken by Western governments and Arab states to curtail the smuggling of Captagon.</p>
+                                            <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="my-[50px] border-b border-solid border-[#ddd]"></div>
+            <section class="px-[17px]">
+                    <div class="lg:w-[50%] w-[100%] flex lg:flex-row flex-col justify-between lg:items-center">
+                        <h1 class="text-[24px]">RECENT PODCASTS</h1>
+                        <a href="#" class="mt-[10px] lg:mt-0 text-blue-400 font-semibold">All Podcasts RSS</a>
+                    </div>
+                    <div class="flex space-x-2 lg:w-[80%] w-[100%] mt-[50px]">
+                        <div class="w-[35%] lg:w-[20%]">
+                            <img class="w-[100%] h-[100px]" src="https://i.pinimg.com/736x/0c/3e/69/0c3e6997bd4d20f50a5de8db8c018e3f---month-rave.jpg" alt="">
+                        </div>
+                        <div class="w-[65%] lg:w-[80%]">
+                            <div class="flex flex-col space-y-2">
+                                <a class="" href="#">INTELLIGENCE ESPRESSO - EPISODE 8</a>
+                                <p>This week's episode will discuss Ukrainian President Volodymyr Zelensky’s rapid tour of Europe, the escalating conflict in Sudan and how it is emblematic of a modern-day ‘scramble for Africa’ among Eastern and Western powers. Finally, the outcomes and consequences from the recent Turkish and Thai elections.</p>
+                                <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
+                                <h1 class="text-[rgba(26,26,26,.7)]">Jun 6, 2023 Intelligence Espresso</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2 lg:w-[80%] w-[100%] mt-[50px]">
+                        <div class="w-[35%] lg:w-[20%]">
+                            <img class="w-[100%] h-[100px]" src="https://i.pinimg.com/736x/0c/3e/69/0c3e6997bd4d20f50a5de8db8c018e3f---month-rave.jpg" alt="">
+                        </div>
+                        <div class="w-[65%] lg:w-[80%]">
+                            <div class="flex flex-col space-y-2">
+                                <a class="" href="#">INTELLIGENCE ESPRESSO - EPISODE 8</a>
+                                <p>This week's episode will discuss Ukrainian President Volodymyr Zelensky’s rapid tour of Europe, the escalating conflict in Sudan and how it is emblematic of a modern-day ‘scramble for Africa’ among Eastern and Western powers. Finally, the outcomes and consequences from the recent Turkish and Thai elections.</p>
+                                <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
+                                <h1 class="text-[rgba(26,26,26,.7)]">Jun 6, 2023 Intelligence Espresso</h1>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <div class="my-[50px] border-b border-solid border-[#ddd]"></div>
+            <section class="px-[17px]">
+                <div class="flex flex-col lg:flex-row space-y-8">
+                    <div class="w-[100%] lg:w-[50%]">
+                        <img class="w-[100%] h-[300px]" src="https://www.pixelstalk.net/wp-content/uploads/2016/11/Cover-HD-Wallpaper.jpg" alt="">
+                    </div>
+                    <div class="w-[100%] lg:w-[50%] flex justify-center items-center">
+                        <div class="flex flex-col justify-center items-center space-y-4">
+                            <h1 class="text-[rgba(26,26,26,.7)] font-semibold">ABOUT1</h1>
+                            <div class="flex flex-col justify-center items-center">
+                                <h1 class="lg:text-[24px] text-[18px]">Find out about our Think Tank, our team</h1>
+                                <h1 class="lg:text-[24px] text-[18px]">and our goals</h1>
+                            </div>
+                            <a href="#" class="text-white uppercase bg-[#1989ae] py-2 px-6 rounded-2xl hover:bg-[#1191bb] font-semibold">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col lg:flex-row flex-col-reverse space-y-8">
+                    <div class="w-[100%] lg:w-[50%] flex justify-center items-center">
+                        <div class="mt-[30px] lg:mt-0 flex flex-col justify-center items-center space-y-4">
+                            <h1 class="text-[rgba(26,26,26,.7)] font-semibold">ABOUT2</h1>
+                            <div class="flex flex-col justify-center items-center">
+                                <h1 class="lg:text-[24px] text-[18px]">Find out about our Think Tank, our team</h1>
+                                <h1 class="lg:text-[24px] text-[18px]">and our goals</h1>
+                            </div>
+                            <a href="#" class="text-white uppercase bg-[#1989ae] py-2 px-6 rounded-2xl hover:bg-[#1191bb] font-semibold">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="w-[100%] lg:w-[50%]">
+                        <img class="w-[100%] h-[300px]" src="https://www.pixelstalk.net/wp-content/uploads/2016/11/Cover-HD-Wallpaper.jpg" alt="">
+                    </div>
+                </div>
+            </section>
+            <div class="my-[50px] border-b border-solid border-[#ddd]"></div>
+        </div>
+    </main>
+    <footer class="lg:mx-[210px] mx-0 lg:px-[32px] lg:px-[20px] px-0 lg:pb-[96px] pb-[40px]">
+        <section class="px-[17px]">
+            <div class="flex flex-col justify-center items-center space-y-4">
+                <div>
+                    <h1 class="text-[24px] font-semibold">FOLLOW US ON SOCIAL MEDIA</h1>
+                </div>
+                <div class="flex justify-center items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM351.3 199.3v0c0 86.7-66 186.6-186.6 186.6c-37.2 0-71.7-10.8-100.7-29.4c5.3 .6 10.4 .8 15.8 .8c30.7 0 58.9-10.4 81.4-28c-28.8-.6-53-19.5-61.3-45.5c10.1 1.5 19.2 1.5 29.6-1.2c-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3c-9-6-16.4-14.1-21.5-23.6s-7.8-20.2-7.7-31c0-12.2 3.2-23.4 8.9-33.1c32.3 39.8 80.8 65.8 135.2 68.6c-9.3-44.5 24-80.6 64-80.6c18.9 0 35.9 7.9 47.9 20.7c14.8-2.8 29-8.3 41.6-15.8c-4.9 15.2-15.2 28-28.8 36.1c13.2-1.4 26-5.1 37.8-10.2c-8.9 13.1-20.1 24.7-32.9 34c.2 2.8 .2 5.7 .2 8.5z"/></svg>
+                </div>
+            </div>
+        </section>
+        <section class="px-[17px] mt-[200px]">
+                <div class="flex flex-col justify-center items-center space-y-4">
+                    <h1 class="font-semibold text-[24px]">SUBSCRIBE</h1>
+                    <h1 class="text-center">Get Free Email Updates About Our Articles, Events and Podcasts</h1>
+                    <div class="">
+                        <form class="mt-[20px] flex lg:flex-row flex-col justify-center items-center lg:space-x-2 space-x-0 space-y-2 lg:space-x-0" action="#">
+                            <div class="mb-[20px] lg:mb-0 flex lg:flex-row flex-col justify-between items-center lg:space-x-2 space-x-0 space-y-2 lg:space-x-0">
+                                <input type="text" class="border-2 border-gray-300 bg-white h-[50px] px-5 pr-10 w-[100%] text-sm focus:outline-none" placeholder="First Name">
+                                <input type="text" class="border-2 border-gray-300 bg-white h-[50px] px-5 pr-10 w-[100%] text-sm focus:outline-none" placeholder="Last Name">
+                                <input type="email" class="border-2 border-gray-300 bg-white h-[50px] px-5 pr-10 w-[100%] text-sm focus:outline-none" placeholder="Email">
+                            </div>
+                            <div class="">
+                                <a href="#" class="text-white uppercase bg-black py-[14px] px-6 hover:opacity-90 font-semibold">SUBSCRIBE</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </section>
+    </footer>
+    <footer>
+        <section class="bg-[#1f1f1f]">
+            <div class="py-[64px] px-[32px] mx-[2px]">
+                <a href="#home"><h1 class="text-center text-white pb-[50px]">BACK TO TOP</h1></a>
+                <div class="lg:h-[100px] h-[180px] text-center lg:text-[18px] text-[16px] text-[rgba(255,255,255,.4)]">
+                    <p class="italic font-serif font-'Adobe Garamond Pro'">The opinions expressed by the individuals in the published material do not represent the University of Glasgow, Dublin City University,</p>
+                    <p class="italic font-serif font-'Adobe Garamond Pro'">University of Trento, Charles University, the IMSISS consortium, or its associates and partners.</p>
+                </div>
+                <p class="text-center text-[rgba(255,255,255,.4)] lg:text-[18px]">Powered by <span class="border-b border-solid border-[rgba(255,255,255,.4)]">Squarespace</span></p>
+            </div>
+        </section>
+    </footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menu_toggle");
+    const sidebar = document.getElementById("sidebar");
+    const close = document.getElementById("close");
+
+    menuToggle.addEventListener("click", function () {
+        sidebar.classList.toggle("-translate-x-full");
+    });
+    close.addEventListener("click", function () {
+        sidebar.classList.toggle("-translate-x-full");
+    });
+});
+</script>
+<script>
+    const carousel = document.querySelector('.carousel');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevButton = document.querySelector('#prevButton');
+    const nextButton = document.querySelector('#nextButton');
+    let currentSlide = 0;
+
+    function goToSlide(slideIndex) {
+        slides.forEach((slide, index) => {
+            slide.classList.toggle(`-translate-x-full`);
+            console.log(slideIndex)
+        });
+        currentSlide = slideIndex;
+    }
+
+    prevButton.addEventListener('click', () => {
+        if (currentSlide > 0) {
+            goToSlide(currentSlide - 1);
+        }
+    });
+
+    nextButton.addEventListener('click', () => {
+        if (currentSlide < slides.length - 1) {
+            goToSlide(currentSlide + 1);
+        }
+    });
+</script>
+</body>
+</html>
