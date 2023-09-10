@@ -1,2 +1,29 @@
 {% load static %}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="{% static 'js/bcga.js' %}"></script>
+
+<script>
+
+    getHeaderData("{% url 'ir_project:topic_get' %}","#topicGet",'topic')
+    getHeaderData("{% url 'ir_project:region_get' %}","#regionGet",'region-topic')
+    getHeaderData("{% url 'ir_project:podcast_get' %}","#podcastGet",'podcast')
+    getHeaderData("{% url 'ir_project:interview_get' %}","#interviewGet",'interview')
+
+    function getHeaderData(get_link,section_id,link_url){
+        $.ajax({
+            type:"GET",
+            url:get_link,
+            success:(res)=>{
+                var data = res['data']
+                $(section_id).empty()
+                data.forEach((topic)=>{
+                    var link ='<a href="'+link_url+'-'+topic["slug"]+'" class="block px-4 py-2 text-white text-[14px]">'+topic["name"]+'</a>'
+                    $(section_id).append(link)
+                    
+                })
+            }
+        })
+    }
+
+    
+</script>

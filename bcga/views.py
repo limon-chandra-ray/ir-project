@@ -1,11 +1,18 @@
 from django.shortcuts import render
-
+from ir_project.models import (Topic,Region,Interview,Podcast)
 # Create your views here.
 def home(request):
-    return render(request,'bcga/home.html')
+    context={
+        'page_info':''
+    }
+    return render(request,'bcga/home.html',context)
 
 def topic(request,topic):
-    return render(request,'bcga/topic.html')
+    page_info = Topic.objects.get(slug = topic)
+    context={
+        'page_info':page_info
+    }
+    return render(request,'bcga/topic.html',context)
 
 def about_us(request):
     return render(request,'bcga/about-us.html')
@@ -30,5 +37,5 @@ def student_team(request):
 
 def teacher_team(request):
     return render(request,'bcga/teacher-team.html')
-def region_topic(request,region):
+def region_topic(request,topic):
     return render(request,'bcga/region-topic.html')

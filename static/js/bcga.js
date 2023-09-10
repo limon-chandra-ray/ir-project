@@ -36,3 +36,4 @@ nextButton.addEventListener('click', () => {
         goToSlide(currentSlide + 1);
     }
 });
+

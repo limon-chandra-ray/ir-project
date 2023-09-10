@@ -1,169 +1,173 @@
 {% extends 'bcga/basic/main.html' %}
+{% block headerImage %}
+{% if page_info != '' %}
+<img class="lg:h-screen h-screen w-full" src="{{page_info.image.url}}" alt="">
+{% else %}
+<img class="lg:h-screen h-screen w-full" src="https://th.bing.com/th/id/OIP.bXeJ_pb9EdW1X7BBZE_OegHaHa?pid=ImgDet&w=600&h=600&rs=1" alt="">
+{% endif %}
+{% endblock headerImage %}
 {% block bcgaMain %}
-<main class="">
-    <div class="lg:mx-[210px] mx-0 lg:px-[32px] lg:px-[20px] px-0 lg:pt-[96px] pt-[40px]">
-        <div class="flex lg:flex-row flex-col justify-between">
-            <div class="lg:w-[50%] w-full px-[17px]">
-                <h1 class="font-bold text-[25px] uppercase text-[rgba(26,26,26,.7)]">Accessible Information for Students and Researchers</h1>
-            </div>
-            <div class="lg:w-[50%] w-full mt-[30px] lg:mt-2">
-                <div class="flex items-center justify-center w-[100%] px-[17px]">
-                    <div class="flex justify-between space-x-2 text-gray-600 w-[100%]">
-                        <input type="text" class="border-2 border-gray-300 bg-white h-[50px] px-5 pr-10 w-[100%] text-sm focus:outline-none" placeholder="Search...">
-                        <a href="#" class="text-white uppercase bg-blue-500 py-3 px-5 hover:opacity-90 font-semibold">SUBSCRIBE</a>
-                    </div>
-                </div>                    
-            </div>
+<div class="lg:mx-[210px] mx-0 lg:px-[32px] lg:px-[20px] px-0 lg:pt-[96px] pt-[40px]">
+    <div class="flex lg:flex-row flex-col justify-between">
+        <div class="lg:w-[50%] w-full px-[17px]">
+            <h1 class="font-bold text-[25px] uppercase text-[rgba(26,26,26,.7)]">Accessible Information for Students and Researchers</h1>
         </div>
-        <div class="p-[17px] mt-[30px]">
-            <div class="flex justify-between">
-                <div>
-                    <h1 class="font-semibold uppercase text-[rgba(26,26,26,.7)]">MOST RECENT ARTICLES</h1>
+        <div class="lg:w-[50%] w-full mt-[30px] lg:mt-2">
+            <div class="flex items-center justify-center w-[100%] px-[17px]">
+                <div class="flex justify-between space-x-2 text-gray-600 w-[100%]">
+                    <input type="text" class="border-2 border-gray-300 bg-white h-[50px] px-5 pr-10 w-[100%] text-sm focus:outline-none" placeholder="Search...">
+                    <a href="#" class="text-white uppercase bg-blue-500 py-3 px-5 hover:opacity-90 font-semibold">SUBSCRIBE</a>
                 </div>
-                <div class="flex justify-end">
-                        <!-- Left Arrow Button -->
-                    <button class="carousel-control " id="prevButton">
-                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-                        </svg>
-                    </button>
-                    
-                    <!-- Right Arrow Button -->
-                    <button class="carousel-control " id="nextButton">
-                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div class="mt-2">
-                <div class="">
-                    <div class="carousel ">
-                        <div class="carousel-inner flex justify-between w-full">
-                            <!-- Slide 1 -->
-                            <div class="carousel-slide flex w-full">
-                                <div class="flex flex-col lg:flex-row justify-between w-full">
-                                    <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
-                                        <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
-                                        <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">DRUGS AND DIPLOMACY IN SYRIA</a>
-                                        <div>
-                                            <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
-                                            <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
-                                        </div>
-                                        <p>This article tackles the involvement of the Syrian government in drug trafficking, to then delve into and evaluate the economic, diplomatic and military measures undertaken by Western governments and Arab states to curtail the smuggling of Captagon.</p>
-                                        <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
-                                    </div>
-                                    <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
-                                        <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
-                                        <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">DRUGS AND DIPLOMACY IN SYRIA</a>
-                                        <div>
-                                            <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
-                                            <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
-                                        </div>
-                                        <p>The crisis in Sudan has unfolded due to the outbreak of conflict between the Rapid Support Force (RSF) and the Sudanese Armed Forces (SAF), which has resulted in mass civilian displacement and a dire need for aid throughout the country [1]. These events echo the Somalian human security crisis of 1993 resulted in the starvation of 300,000 Somalis due to regime collapse and conflict between several rival factions [2]. Despite clear differences between these two cases, the similarities of their outcomes are clear, as both conflicts have produced mass food insecurity, civilian suffering, and potential regional instability [3]. A lack of institutional stability has been a common causal factor in their human security crises [4].</p>
-                                        <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
-                                    </div>
-                                    <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
-                                        <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
-                                        <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">DRUGS AND DIPLOMACY IN SYRIA</a>
-                                        <div>
-                                            <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
-                                            <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
-                                        </div>
-                                        <p>This article tackles the involvement of the Syrian government in drug trafficking, to then delve into and evaluate the economic, diplomatic and military measures undertaken by Western governments and Arab states to curtail the smuggling of Captagon.</p>
-                                        <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Slide 2 -->
-                            <div class="carousel-slide flex w-[100%]">
-                                <div class="flex flex-col lg:flex-row justify-between w-[100%]">
-                                    <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
-                                        <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
-                                        <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">SAMRAT</a>
-                                        <div>
-                                            <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
-                                            <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
-                                        </div>
-                                        <p>This article tackles the involvement of the Syrian government in drug trafficking, to then delve into and evaluate the economic, diplomatic and military measures undertaken by Western governments and Arab states to curtail the smuggling of Captagon.</p>
-                                        <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>                    
         </div>
-        <div class="my-[50px] border-b border-solid border-[#ddd]"></div>
-        <section class="px-[17px]">
-                <div class="lg:w-[50%] w-[100%] flex lg:flex-row flex-col justify-between lg:items-center">
-                    <h1 class="text-[24px]">RECENT PODCASTS</h1>
-                    <a href="#" class="mt-[10px] lg:mt-0 text-blue-400 font-semibold">All Podcasts RSS</a>
-                </div>
-                <div class="flex space-x-2 lg:w-[80%] w-[100%] mt-[50px]">
-                    <div class="w-[35%] lg:w-[20%]">
-                        <img class="w-[100%] h-[100px]" src="https://i.pinimg.com/736x/0c/3e/69/0c3e6997bd4d20f50a5de8db8c018e3f---month-rave.jpg" alt="">
-                    </div>
-                    <div class="w-[65%] lg:w-[80%]">
-                        <div class="flex flex-col space-y-2">
-                            <a class="" href="#">INTELLIGENCE ESPRESSO - EPISODE 8</a>
-                            <p>This week's episode will discuss Ukrainian President Volodymyr Zelensky’s rapid tour of Europe, the escalating conflict in Sudan and how it is emblematic of a modern-day ‘scramble for Africa’ among Eastern and Western powers. Finally, the outcomes and consequences from the recent Turkish and Thai elections.</p>
-                            <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
-                            <h1 class="text-[rgba(26,26,26,.7)]">Jun 6, 2023 Intelligence Espresso</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex space-x-2 lg:w-[80%] w-[100%] mt-[50px]">
-                    <div class="w-[35%] lg:w-[20%]">
-                        <img class="w-[100%] h-[100px]" src="https://i.pinimg.com/736x/0c/3e/69/0c3e6997bd4d20f50a5de8db8c018e3f---month-rave.jpg" alt="">
-                    </div>
-                    <div class="w-[65%] lg:w-[80%]">
-                        <div class="flex flex-col space-y-2">
-                            <a class="" href="#">INTELLIGENCE ESPRESSO - EPISODE 8</a>
-                            <p>This week's episode will discuss Ukrainian President Volodymyr Zelensky’s rapid tour of Europe, the escalating conflict in Sudan and how it is emblematic of a modern-day ‘scramble for Africa’ among Eastern and Western powers. Finally, the outcomes and consequences from the recent Turkish and Thai elections.</p>
-                            <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
-                            <h1 class="text-[rgba(26,26,26,.7)]">Jun 6, 2023 Intelligence Espresso</h1>
-                        </div>
-                    </div>
-                </div>
-        </section>
-        <div class="my-[50px] border-b border-solid border-[#ddd]"></div>
-        <section class="px-[17px]">
-            <div class="flex flex-col lg:flex-row space-y-8">
-                <div class="w-[100%] lg:w-[50%]">
-                    <img class="w-[100%] h-[300px]" src="https://www.pixelstalk.net/wp-content/uploads/2016/11/Cover-HD-Wallpaper.jpg" alt="">
-                </div>
-                <div class="w-[100%] lg:w-[50%] flex justify-center items-center">
-                    <div class="flex flex-col justify-center items-center space-y-4">
-                        <h1 class="text-[rgba(26,26,26,.7)] font-semibold">ABOUT1</h1>
-                        <div class="flex flex-col justify-center items-center">
-                            <h1 class="lg:text-[24px] text-[18px]">Find out about our Think Tank, our team</h1>
-                            <h1 class="lg:text-[24px] text-[18px]">and our goals</h1>
-                        </div>
-                        <a href="#" class="text-white uppercase bg-[#1989ae] py-2 px-6 rounded-2xl hover:bg-[#1191bb] font-semibold">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col lg:flex-row flex-col-reverse space-y-8">
-                <div class="w-[100%] lg:w-[50%] flex justify-center items-center">
-                    <div class="mt-[30px] lg:mt-0 flex flex-col justify-center items-center space-y-4">
-                        <h1 class="text-[rgba(26,26,26,.7)] font-semibold">ABOUT2</h1>
-                        <div class="flex flex-col justify-center items-center">
-                            <h1 class="lg:text-[24px] text-[18px]">Find out about our Think Tank, our team</h1>
-                            <h1 class="lg:text-[24px] text-[18px]">and our goals</h1>
-                        </div>
-                        <a href="#" class="text-white uppercase bg-[#1989ae] py-2 px-6 rounded-2xl hover:bg-[#1191bb] font-semibold">Learn More</a>
-                    </div>
-                </div>
-                <div class="w-[100%] lg:w-[50%]">
-                    <img class="w-[100%] h-[300px]" src="https://www.pixelstalk.net/wp-content/uploads/2016/11/Cover-HD-Wallpaper.jpg" alt="">
-                </div>
-            </div>
-        </section>
-        <div class="my-[50px] border-b border-solid border-[#ddd]"></div>
     </div>
-</main>
-
+    <div class="p-[17px] mt-[30px]">
+        <div class="flex justify-between">
+            <div>
+                <h1 class="font-semibold uppercase text-[rgba(26,26,26,.7)]">MOST RECENT ARTICLES</h1>
+            </div>
+            <div class="flex justify-end">
+                    <!-- Left Arrow Button -->
+                <button class="carousel-control " id="prevButton">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                    </svg>
+                </button>
+                
+                <!-- Right Arrow Button -->
+                <button class="carousel-control " id="nextButton">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="mt-2">
+            <div class="">
+                <div class="carousel ">
+                    <div class="carousel-inner flex justify-between w-full">
+                        <!-- Slide 1 -->
+                        <div class="carousel-slide flex w-full">
+                            <div class="flex flex-col lg:flex-row justify-between w-full">
+                                <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
+                                    <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
+                                    <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">DRUGS AND DIPLOMACY IN SYRIA</a>
+                                    <div>
+                                        <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
+                                        <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
+                                    </div>
+                                    <p>This article tackles the involvement of the Syrian government in drug trafficking, to then delve into and evaluate the economic, diplomatic and military measures undertaken by Western governments and Arab states to curtail the smuggling of Captagon.</p>
+                                    <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
+                                </div>
+                                <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
+                                    <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
+                                    <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">DRUGS AND DIPLOMACY IN SYRIA</a>
+                                    <div>
+                                        <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
+                                        <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
+                                    </div>
+                                    <p>The crisis in Sudan has unfolded due to the outbreak of conflict between the Rapid Support Force (RSF) and the Sudanese Armed Forces (SAF), which has resulted in mass civilian displacement and a dire need for aid throughout the country [1]. These events echo the Somalian human security crisis of 1993 resulted in the starvation of 300,000 Somalis due to regime collapse and conflict between several rival factions [2]. Despite clear differences between these two cases, the similarities of their outcomes are clear, as both conflicts have produced mass food insecurity, civilian suffering, and potential regional instability [3]. A lack of institutional stability has been a common causal factor in their human security crises [4].</p>
+                                    <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
+                                </div>
+                                <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
+                                    <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
+                                    <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">DRUGS AND DIPLOMACY IN SYRIA</a>
+                                    <div>
+                                        <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
+                                        <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
+                                    </div>
+                                    <p>This article tackles the involvement of the Syrian government in drug trafficking, to then delve into and evaluate the economic, diplomatic and military measures undertaken by Western governments and Arab states to curtail the smuggling of Captagon.</p>
+                                    <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-slide flex w-[100%]">
+                            <div class="flex flex-col lg:flex-row justify-between w-[100%]">
+                                <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
+                                    <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
+                                    <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">SAMRAT</a>
+                                    <div>
+                                        <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
+                                        <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
+                                    </div>
+                                    <p>This article tackles the involvement of the Syrian government in drug trafficking, to then delve into and evaluate the economic, diplomatic and military measures undertaken by Western governments and Arab states to curtail the smuggling of Captagon.</p>
+                                    <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my-[50px] border-b border-solid border-[#ddd]"></div>
+    <section class="px-[17px]">
+            <div class="lg:w-[50%] w-[100%] flex lg:flex-row flex-col justify-between lg:items-center">
+                <h1 class="text-[24px]">RECENT PODCASTS</h1>
+                <a href="#" class="mt-[10px] lg:mt-0 text-blue-400 font-semibold">All Podcasts RSS</a>
+            </div>
+            <div class="flex space-x-2 lg:w-[80%] w-[100%] mt-[50px]">
+                <div class="w-[35%] lg:w-[20%]">
+                    <img class="w-[100%] h-[100px]" src="https://i.pinimg.com/736x/0c/3e/69/0c3e6997bd4d20f50a5de8db8c018e3f---month-rave.jpg" alt="">
+                </div>
+                <div class="w-[65%] lg:w-[80%]">
+                    <div class="flex flex-col space-y-2">
+                        <a class="" href="#">INTELLIGENCE ESPRESSO - EPISODE 8</a>
+                        <p>This week's episode will discuss Ukrainian President Volodymyr Zelensky’s rapid tour of Europe, the escalating conflict in Sudan and how it is emblematic of a modern-day ‘scramble for Africa’ among Eastern and Western powers. Finally, the outcomes and consequences from the recent Turkish and Thai elections.</p>
+                        <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
+                        <h1 class="text-[rgba(26,26,26,.7)]">Jun 6, 2023 Intelligence Espresso</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="flex space-x-2 lg:w-[80%] w-[100%] mt-[50px]">
+                <div class="w-[35%] lg:w-[20%]">
+                    <img class="w-[100%] h-[100px]" src="https://i.pinimg.com/736x/0c/3e/69/0c3e6997bd4d20f50a5de8db8c018e3f---month-rave.jpg" alt="">
+                </div>
+                <div class="w-[65%] lg:w-[80%]">
+                    <div class="flex flex-col space-y-2">
+                        <a class="" href="#">INTELLIGENCE ESPRESSO - EPISODE 8</a>
+                        <p>This week's episode will discuss Ukrainian President Volodymyr Zelensky’s rapid tour of Europe, the escalating conflict in Sudan and how it is emblematic of a modern-day ‘scramble for Africa’ among Eastern and Western powers. Finally, the outcomes and consequences from the recent Turkish and Thai elections.</p>
+                        <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
+                        <h1 class="text-[rgba(26,26,26,.7)]">Jun 6, 2023 Intelligence Espresso</h1>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <div class="my-[50px] border-b border-solid border-[#ddd]"></div>
+    <section class="px-[17px]">
+        <div class="flex flex-col lg:flex-row space-y-8">
+            <div class="w-[100%] lg:w-[50%]">
+                <img class="w-[100%] h-[300px]" src="https://www.pixelstalk.net/wp-content/uploads/2016/11/Cover-HD-Wallpaper.jpg" alt="">
+            </div>
+            <div class="w-[100%] lg:w-[50%] flex justify-center items-center">
+                <div class="flex flex-col justify-center items-center space-y-4">
+                    <h1 class="text-[rgba(26,26,26,.7)] font-semibold">ABOUT1</h1>
+                    <div class="flex flex-col justify-center items-center">
+                        <h1 class="lg:text-[24px] text-[18px]">Find out about our Think Tank, our team</h1>
+                        <h1 class="lg:text-[24px] text-[18px]">and our goals</h1>
+                    </div>
+                    <a href="#" class="text-white uppercase bg-[#1989ae] py-2 px-6 rounded-2xl hover:bg-[#1191bb] font-semibold">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col lg:flex-row flex-col-reverse space-y-8">
+            <div class="w-[100%] lg:w-[50%] flex justify-center items-center">
+                <div class="mt-[30px] lg:mt-0 flex flex-col justify-center items-center space-y-4">
+                    <h1 class="text-[rgba(26,26,26,.7)] font-semibold">ABOUT2</h1>
+                    <div class="flex flex-col justify-center items-center">
+                        <h1 class="lg:text-[24px] text-[18px]">Find out about our Think Tank, our team</h1>
+                        <h1 class="lg:text-[24px] text-[18px]">and our goals</h1>
+                    </div>
+                    <a href="#" class="text-white uppercase bg-[#1989ae] py-2 px-6 rounded-2xl hover:bg-[#1191bb] font-semibold">Learn More</a>
+                </div>
+            </div>
+            <div class="w-[100%] lg:w-[50%]">
+                <img class="w-[100%] h-[300px]" src="https://www.pixelstalk.net/wp-content/uploads/2016/11/Cover-HD-Wallpaper.jpg" alt="">
+            </div>
+        </div>
+    </section>
+    <div class="my-[50px] border-b border-solid border-[#ddd]"></div>
+</div>
 
 {% endblock bcgaMain %}

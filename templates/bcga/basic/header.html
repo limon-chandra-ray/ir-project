@@ -5,10 +5,10 @@
                 <a href="#"><img class="h-[50px] lg:h-[100px] w-[54.475px] lg:w-[108.963px]" src="https://th.bing.com/th/id/R.572e4f51d0a4d67669784df53026b5a7?rik=lv9i04y8yl33Dg&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2f3%2f33%2fVanamo_Logo.png&ehk=Ix3NOUWRAegY6L3gmUWwTNm0Gee%2faq3jB0ZwGhiKFRk%3d&risl=&pid=ImgRaw&r=0" alt=""></a>
             </div>
             <div class="hidden lg:block space-x-6">
-                <a href="#" class="text-white">Home</a>
+                <a href="{% url 'bcga:home' %}" class="text-white">Home</a>
                 <div class="relative parent inline-block text-left">
                     <a href="#" class="text-white">Podcasts</a>
-                    <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]">
+                    <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]" id="podcastGet">
                         <!-- Dropdown items go here -->
                         <a href="#" class="block px-4 py-2 text-white text-[14px]">Conversing Crime</a>
                         <a href="#" class="block px-4 py-2 text-white text-[14px]">Intelligence Espresso</a>
@@ -18,7 +18,7 @@
                 </div>
                 <div class="relative parent inline-block text-left">
                     <a href="#" class="text-white">Interviews</a>
-                    <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]">
+                    <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]" id="interviewGet">
                         <!-- Dropdown items go here -->
                         <a href="#" class="block px-4 py-2 text-white text-[14px]">Conversing Covid</a>
                         <a href="#" class="block px-4 py-2 text-white text-[14px]">Covid Continues</a>
@@ -27,27 +27,13 @@
                 </div>
                 <div class="relative parent inline-block text-left">
                     <a href="#" class="text-white">Topics</a>
-                    <div class="hidden absolute child z-10 py-2 w-[350px] bg-[#212121]">
-                        <!-- Dropdown items go here -->
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">All Articles</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Arms and Disarmament</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Environmental and Energy Security</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Foreign Policy</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Gender and Security</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Human Security</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Intelligence</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">National Security</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Organised Crime</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Political Affairs</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Public health</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Technology</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Terrorism</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Theories, Concepts and Approaches</a>
+                    <div class="hidden absolute child z-10 py-2 w-[350px] bg-[#212121]" id="topicGet">
+                       
                     </div>
                 </div>
                 <div class="relative parent inline-block text-left">
                     <a href="#" class="text-white">Regions</a>
-                    <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]">
+                    <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]" id="regionGet">
                         <!-- Dropdown items go here -->
                         <a href="#" class="block px-4 py-2 text-white text-[14px]">Asia Pacific</a>
                         <a href="#" class="block px-4 py-2 text-white text-[14px]">South Asia</a>

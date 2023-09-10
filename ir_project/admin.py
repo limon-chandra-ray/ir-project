@@ -7,10 +7,16 @@ from .models import (
 )
 # Register your models here.
 class TopicAdmin(admin.ModelAdmin):
-    prepopulated_fields ={"topic_slug":("name",),}
+    prepopulated_fields ={"slug":("name",),}
+class RegionAdmin(admin.ModelAdmin):
+    prepopulated_fields ={"slug":("name",),}
+class PodcastAdmin(admin.ModelAdmin):
+    prepopulated_fields ={"slug":("name",),}
 
+class InterviewAdmin(admin.ModelAdmin):
+    prepopulated_fields ={"slug":("name",),}
 
-admin.site.register(Region)
+admin.site.register(Region,RegionAdmin)
 admin.site.register(Topic,TopicAdmin)
-admin.site.register(Podcast)
-admin.site.register(Interview)
+admin.site.register(Podcast,PodcastAdmin)
+admin.site.register(Interview,InterviewAdmin)

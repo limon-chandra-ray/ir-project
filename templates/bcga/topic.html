@@ -1,0 +1,12 @@
+{% extends 'bcga/basic/main.html' %}
+{% block headerImage %}
+{% if page_info != '' %}
+<img class="lg:h-screen h-screen w-full" src="{{page_info.image.url}}" alt="">
+{% else %}
+<img class="lg:h-screen h-screen w-full" src="https://th.bing.com/th/id/OIP.bXeJ_pb9EdW1X7BBZE_OegHaHa?pid=ImgDet&w=600&h=600&rs=1" alt="">
+{% endif %}
+{% endblock headerImage %}
+{% block bcgaMain %}
+
+
+{% endblock bcgaMain %}
