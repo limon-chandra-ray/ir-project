@@ -61,12 +61,43 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'bgbiscom_bgbis',
+#         'USER': 'bgbiscom_bgbis_ir_dept',
+#         'PASSWORD': 'bZ+Xzt8]cJoe',
+#         'HOST':'localhost',
+#         'PORT':'3306',
+#         'OPTIONS':{
+#             'charset': 'utf8mb4',
+#             'collation': 'utf8mb4_unicode_ci',
+#         },
+#     }
+# }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ir_project',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST':'localhost',
+#         'PORT':'3306',
+#         'OPTIONS':{
+#             'charset': 'utf8mb4',
+#             'collation': 'utf8mb4_unicode_ci',
+#         },
+#     }
+# }
 
 
 # Password validation
@@ -118,6 +149,7 @@ if DEBUG:
     CKEDITOR_UPLOAD_PATH = "media/ckeditor/"
 else:
     MEDIA_ROOT = '/home/bgbiscom/public_html/media/'
+    CKEDITOR_UPLOAD_PATH = "/home/bgbiscom/public_html/media/ckeditor/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
