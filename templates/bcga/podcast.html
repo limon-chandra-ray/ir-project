@@ -1,5 +1,49 @@
 {% extends 'bcga/basic/main.html' %}
+{% block headerImage %}
+<img class="lg:h-[72.6vh] h-[40vh] w-full" src="https://npr.brightspotcdn.com/dims4/default/679aa4a/2147483647/strip/true/crop/6000x4000+0+0/resize/880x587!/quality/90/?url=http:%2F%2Fnpr-brightspot.s3.amazonaws.com%2F05%2F3c%2Fd06511894002b1658dcc885b56cc%2Fmicrosoftteams-image.png" alt="">
+{% endblock headerImage %}
+{% block headerText %}
+<h1 class="font-['Roboto'] lg:text-[44px] text-[24px] #fff font-[700px] uppercase">Podcasts</h1>
+{% endblock headerText %}
 {% block bcgaMain %}
-
+<div class="lg:mx-[248px] mx-0 lg:px-[32px] px-0 lg:py-[96px] py-[40px] flex justify-center">
+    <div class="flex lg:flex-row flex-col justify-between">
+        <div class="lg:w-[245px] w-[100%] p-[17px] lg:p-0">
+            <div class=" flex flex-col space-y-2 text-[rgba(26,26,26,.4)] font-serif">
+                <h1 class="text-[#00746b] text-[22px]">Podcasts</h1>
+                <a href="#" class="text-[14px] hover:text-black">CONVERSING CRIME</a>
+                <a href="#" class="text-[14px] hover:text-black">INTELLIGENCE ESPRESSO</a>
+                <a href="#" class="text-[14px] hover:text-black">SIPS & QUIPS</a>
+                <a href="#" class="text-[14px] hover:text-black">SPIN-OFF SERIES</a>
+            </div>
+        </div>
+        <div class="lg:w-[745px] w-[100%] text-[rgba(26,26,26,.7)]">
+            <div class="italic font-serif font-'Adobe Garamond Pro' pb-[17px] px-[17px]">
+                <p class="mb-[18px]">Welcome to our Spin-Off Series, where we delve into a diverse range of topics surrounding security whilst being accompanied by some remarkable special guests.</p>
+                <p>Hosted by the Security Distillery podcast team, these podcasts provide a unique insight into particular careers, whether it be space, government or technology and explore subjects from different angles whilst providing a great opportunity to share best practices.</p>
+            </div>
+            <div class="grid lg:grid-cols-2 grid-cols-1 lg:gap-[60px] gap-0 p-[17px]">
+                <div class="flex flex-col space-y-2">
+                    <img src="https://npr.brightspotcdn.com/dims4/default/679aa4a/2147483647/strip/true/crop/6000x4000+0+0/resize/880x587!/quality/90/?url=http:%2F%2Fnpr-brightspot.s3.amazonaws.com%2F05%2F3c%2Fd06511894002b1658dcc885b56cc%2Fmicrosoftteams-image.png" alt="">
+                    <a href="#" class="text-[20px] font-semibold hover:text-[#3d9991]">SPIN-OFF SERIES: EXPLORING SPACE SECURITY AND THE DART PROJECT - PART 2</a>
+                    <p class="text-[14px]">In the previous episode, we introduced the history and scientific part of the DART project and explored different approaches to defend the earth. In this episode, we keep on the conversation with astronomer Po Yen Liu about the issues within space security, and push further to discuss the ethical problem about space development.</p>
+                    <p>May 17, 2023</p>
+                </div>
+                <div class="flex flex-col space-y-2">
+                    <img src="https://npr.brightspotcdn.com/dims4/default/679aa4a/2147483647/strip/true/crop/6000x4000+0+0/resize/880x587!/quality/90/?url=http:%2F%2Fnpr-brightspot.s3.amazonaws.com%2F05%2F3c%2Fd06511894002b1658dcc885b56cc%2Fmicrosoftteams-image.png" alt="">
+                    <a href="#" class="text-[20px] font-semibold hover:text-[#3d9991]">SPIN-OFF SERIES: EXPLORING SPACE SECURITY AND THE DART PROJECT - PART 2</a>
+                    <p class="text-[14px]">In the previous episode, we introduced the history and scientific part of the DART project and explored different approaches to defend the earth. In this episode, we keep on the conversation with astronomer Po Yen Liu about the issues within space security, and push further to discuss the ethical problem about space development.</p>
+                    <p>May 17, 2023</p>
+                </div>
+                <div class="flex flex-col space-y-2">
+                    <img src="https://npr.brightspotcdn.com/dims4/default/679aa4a/2147483647/strip/true/crop/6000x4000+0+0/resize/880x587!/quality/90/?url=http:%2F%2Fnpr-brightspot.s3.amazonaws.com%2F05%2F3c%2Fd06511894002b1658dcc885b56cc%2Fmicrosoftteams-image.png" alt="">
+                    <a href="#" class="text-[20px] font-semibold hover:text-[#3d9991]">SPIN-OFF SERIES: EXPLORING SPACE SECURITY AND THE DART PROJECT - PART 2</a>
+                    <p class="text-[14px]">In the previous episode, we introduced the history and scientific part of the DART project and explored different approaches to defend the earth. In this episode, we keep on the conversation with astronomer Po Yen Liu about the issues within space security, and push further to discuss the ethical problem about space development.</p>
+                    <p>May 17, 2023</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock bcgaMain %}

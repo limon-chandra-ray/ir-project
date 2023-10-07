@@ -4,14 +4,15 @@
                 <h1 class="font-semibold text-[24px]">SUBSCRIBE</h1>
                 <h1 class="text-center">Get Free Email Updates About Our Articles, Events and Podcasts</h1>
                 <div class="">
-                    <form class="mt-[20px] flex lg:flex-row flex-col justify-center items-center lg:space-x-2 space-x-0 space-y-2 lg:space-y-0" action="#">
+                    <form class="mt-[20px] flex lg:flex-row flex-col justify-center items-center lg:space-x-2 space-x-0 space-y-2 lg:space-y-0" action="{% url "bcga:subscribe_webpage" %}" method="post">
+                        {% csrf_token %}
                         <div class="mb-[20px] lg:mb-0 flex lg:flex-row flex-col justify-between items-center lg:space-x-2 space-x-0 space-y-2 lg:space-y-0">
-                            <input type="text" class="border-2 border-gray-300 bg-white h-[50px] px-5 pr-10 w-[100%] text-sm focus:outline-none" placeholder="First Name">
-                            <input type="text" class="border-2 border-gray-300 bg-white h-[50px] px-5 pr-10 w-[100%] text-sm focus:outline-none" placeholder="Last Name">
-                            <input type="email" class="border-2 border-gray-300 bg-white h-[50px] px-5 pr-10 w-[100%] text-sm focus:outline-none" placeholder="Email">
+                            <input type="text" name="f_name" class="border-2 border-gray-300 bg-white h-[50px] px-5 pr-10 w-[100%] text-sm focus:outline-none" placeholder="First Name">
+                            <input type="text" name="l_name" class="border-2 border-gray-300 bg-white h-[50px] px-5 pr-10 w-[100%] text-sm focus:outline-none" placeholder="Last Name">
+                            <input type="email" name="email" class="border-2 border-gray-300 bg-white h-[50px] px-5 pr-10 w-[100%] text-sm focus:outline-none" placeholder="Email">
                         </div>
                         <div class="">
-                            <a href="#" class="text-white uppercase bg-black py-[14px] px-6 hover:opacity-90 font-semibold">SUBSCRIBE</a>
+                            <button type="submit" class="text-white uppercase bg-black py-[14px] px-6 hover:opacity-90 font-semibold">SUBSCRIBE</button>
                         </div>
                     </form>
                 </div>

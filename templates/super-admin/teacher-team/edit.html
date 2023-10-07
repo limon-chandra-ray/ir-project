@@ -1,0 +1,48 @@
+<div id="teacherProfileEditModal" class="hidden fixed z-10 inset-0 overflow-y-auto">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 transition-opacity">
+            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+        <div class="w-[100%] inline-block align-bottom bg-green-400 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg">
+            <div class="flex flex-row">
+                <div class="grow text-center pt-2 text-[1rem] text-[500]">Edit Teacher Profile</div>
+                <div id="modalClose" class="bg-white cursor-pointer p-1">
+                    <h1 class="mx-1 text-[rgba(26,26,26,.7)] text-[24px]">✕</h1>
+                </div>
+            </div>
+            <div class="bg-green-300 px-4 py-5 sm:p-6">
+                <div class="flex justify-center">
+                    <div class="mt-3 sm:mt-0 sm:text-left w-full">
+                        <form action="{% url 'sadmin:teacher_team_edit' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="number" id="editteacherid" name="editteacherid" class="hidden">
+                            <div class="flex flex-col">
+                                <label for="user_name" class="text-[15px] py-2">User Name</label>
+                                <input class="border-2 border-gray-600 text-[15px] py-3 px-2 rounded" type="text" name="user_name" id="user_name" placeholder="Enter user name" required>
+                            </div>
+                
+                            <div class="flex flex-col">
+                                <label for="email" class="text-[15px] py-2">Email Address</label>
+                                <input class="border-2 border-gray-600 text-[15px] py-3 px-2 rounded" type="email" name="email" id="email" placeholder="email address" required>
+                            </div>
+                            <div class="flex flex-col">
+                                <label for="phone_number" class="text-[15px] py-2">Phone Number</label>
+                                <input class="border-2 border-gray-600 text-[15px] py-3 px-2 rounded" type="tel" pattern="[0]{1}[1]{1}[0-9]{9}" name="phone_number" id="phone_number" placeholder="01531xxxxxx" min="11" max="11" required>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <label for="teacher_profile_image" id="showteacherimage" class="text-[15px] py-2 mt-3 cursor-pointer">
+                                </label> 
+                                <input class="hidden border-gray-600 text-[15px] py-2 px-2 rounded" type="file"  name="teacher_profile_image" id="teacher_profile_image" >
+                            </div>
+                            
+                            <div class="py-4 flex justify-center space-x-4 items-center">
+                                <button type="submit" class="text-[#000] uppercase bg-green-400 py-2 px-8 hover:bg-[rgba(26,26,26,.9)] hover:text-[#FFCB05] font-semibold">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+{% extends "super-admin/main.html" %}
+{% load static %}
+{% block sadminTitle %}
+teacher team list
+{% endblock sadminTitle %}
+{% block sadminMain %}
+<div class="bg-cyan-600">
+    <div class="text-center py-4 text-3xl text-white">All Topic</div>
+    <div class="flex justify-end mr-3 py-2">
+        <a href="{% url "sadmin:teacher_add" %}" class="px-3 py-2 rounded text-white bg-cyan-700 hover:bg-cyan-800">Add New Teacher</a>
+    </div>
+</div>
+<div class="px-2">
+    <div class="bg-white">
+        <div class="mx-auto max-w-2xl px-4 sm:px-6  lg:max-w-7xl lg:px-8">
+          <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            {% for teacher in teachers %}
+              {% include "super-admin/teacher-team/teacher-card.html" %}
+            {% endfor %}
+
+          </div>
+        </div>
+    </div>
+</div>
+{% include "super-admin/teacher-team/edit.html" %}
+{% endblock sadminMain %}
+{% block sadminScripts %}
+<script>
+    var closeButton = document.querySelectorAll('#modalClose');
+      closeButton.forEach((c_button)=>{
+          c_button.addEventListener('click',()=>{
+              $("#teacherProfileEditModal").addClass("hidden");
+          })
+    })
+    var profile_update_buttons = document.querySelectorAll("#teacherProfileUpdate")
+    profile_update_buttons.forEach((pu_button)=>{
+      pu_button.addEventListener('click',()=>{
+  
+        var teacher_id = pu_button.getAttribute('data-id')
+        $.ajax({
+          type:"POST",
+          url:"{% url 'sadmin:teacher_get' %}",
+          data:{
+            teacher:teacher_id,
+            'csrfmiddlewaretoken': '{{ csrf_token }}',
+          },
+          success:(res)=>{
+            if(res['status'] == 'success'){
+              $("#teacherProfileEditModal").removeClass("hidden")
+              $("#showteacherimage").empty()
+              var teacher = res['teacher'];
+              $("#editteacherid").val(teacher[0])
+              $("#user_name").val(teacher[1])
+              $("#email").val(teacher[2])
+              $("#phone_number").val(teacher[3])
+              var image = '';
+              if(teacher[4] != ' '){
+                image = '<img class="w-[120px] h-[70px] rounded justify-center items-end" id="teacherProfileImage" src="/media/'+teacher[4]+'" alt="">';
+              }else{
+                image = '<img class="w-[120px] h-[70px] rounded justify-center items-end" id="teacherProfileImage" src="{% static "images/teacher.jpg" %}" alt="">';
+              }
+              $("#showteacherimage").append(image)
+            }
+            
+            
+            
+          }
+        })
+        
+      })
+    })
+    $("#teacher_profile_image").on("change",()=>{
+      var progile_image = document.getElementById('teacher_profile_image');
+      $("#teacherProfileImage").attr('src',URL.createObjectURL(progile_image.files[0]))
+    })
+  
+</script>
+{% endblock sadminScripts %}

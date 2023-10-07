@@ -1,5 +1,22 @@
 {% extends 'bcga/basic/main.html' %}
+{% block headerImage %}
+    <img class="lg:h-[72.6vh] h-[40vh] w-full" src="https://th.bing.com/th/id/R.d34cef3b782014355e7b30c79139dce9?rik=GSs49M46k7cVhg&riu=http%3a%2f%2fwww.earlychildhoodeducationzone.com%2fwp-content%2fuploads%2f2015%2f01%2fedu-conferences-2015.jpg&ehk=s5AfNlBll1d3Aeb3ayWaF5z2j%2bK2Sym%2bSM12g3E9TK0%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="">
+{% endblock headerImage %}
+{% block headerText %}
+<h1 class="font-['Roboto'] lg:text-[44px] text-[24px] #fff font-[700px] uppercase">About Us</h1> 
+{% endblock headerText %}
 {% block bcgaMain %}
-
-
+<div class="lg:mx-[300px] mx-0 lg:px-[32px] px-[17px] lg:py-[96px] py-[40px]">
+    <div>
+        <p class="italic text-[rgba(26,26,26,.9)] font-['adobe-garamond-pro'] font-[400px] text-[32px] leading-[2rem] w-[100%]">The Bangabandhu Center for International Studies is an initiative from students for students. We aim to turn complex issues into simple matters in order to provide quality, accessible information for students and researchers.</p>
+    </div>
+    <div class="mt-8">
+        <h1 class="text-[28px]">OUR MISSION</h1>
+        <p class="text-[rgba(26,26,26,.7)] text-[20px] mt-2">In the dynamic field of security studies, we intend to distil the essence of complicated issues into digestible amounts of comprehensible information, without oversimplifying or losing nuance. Our content is structured regionally and thematically, ranging from cybersecurity to terrorism, and from Asian to Central American politics.</p>
+    </div>
+    <div class="mt-8">
+        <h1 class="text-[28px]">ENGAGE WITH US</h1>
+        <p class="text-[rgba(26,26,26,.7)] text-[20px] mt-2">Be sure to like and comment on our posts. We want to create a dialogue around the security issues we discuss and we want you to be involved! Also, keep up to date without upcoming events via the events page.</p>
+    </div>
+</div>
 {% endblock bcgaMain %}

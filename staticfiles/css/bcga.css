@@ -1,0 +1,19 @@
+.parent:hover .child {
+    display: block;
+}
+.parent2:hover .child2 {
+    display: block;
+}
+.carousel {
+    display: flex;
+    overflow: hidden;
+}
+.carousel-inner {
+    transition: transform 0.3s ease-in-out;
+}
+.carousel-slide {
+    flex: 0 0 100%;
+}
+.carousel-control {
+    cursor: pointer;
+}

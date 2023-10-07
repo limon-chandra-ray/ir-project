@@ -1,0 +1,57 @@
+<html lang="en">
+    {% load static %}
+<head>
+    {% include 'bcga/basic/head.html' %}
+    
+    
+    <title>Home| {% block sadminTitle %}{% endblock sadminTitle %}</title>
+    {% block sadminStyle %}{% endblock sadminStyle %}
+</head>
+<body>
+    <div class="relative flex min-h-screen">
+        <div class="bg-cyan-600 text-cyan-100 w-60 space-y-2 px-2">
+            <a href="#" class="flex justify-center py-4">Project</a>
+            <nav>
+                {% url "sadmin:home" as studentHome %}
+                <a href="{{studentHome}}"  class="flex items-center space-x-4 px-2 py-2 hover:bg-cyan-700 {% if request.path == studentHome %}bg-cyan-700{% endif %}">Dashboard</a>
+                {% url "sadmin:student_team_list" as studentteamlist %}
+                <a href="{{studentteamlist}}" class="flex items-center space-x-4 px-2 py-2 hover:bg-cyan-700 {% if request.path == studentteamlist %}bg-cyan-700{% endif %}">Student Team</a>
+                {% url "sadmin:teacher_team_list" as teacherteamlist %}
+                <a href="{{teacherteamlist}}" class="flex items-center space-x-4 px-2 py-2 hover:bg-cyan-700 {% if request.path == teacherteamlist %}bg-cyan-700{% endif %}">Teacher Team</a>
+                {% url "sadmin:topic_list" as topiclist %}
+                <a href="{{topiclist}}" class="flex items-center space-x-4 px-2 py-2 hover:bg-cyan-700 {% if request.path == topiclist %}bg-cyan-700{% endif %}">All Topic</a>
+                {% url "sadmin:region_list" as regionlist %}
+                <a href="{{regionlist}}" class="flex items-center space-x-4 px-2 py-2 hover:bg-cyan-700 {% if request.path == regionlist %}bg-cyan-700{% endif %}">All Region</a>
+                {% url "sadmin:user_contact_list" as contactlist %}
+                <a href="{{contactlist}}" class="flex items-center space-x-4 px-2 py-2 hover:bg-cyan-700 {% if request.path == contactlist %}bg-cyan-700{% endif %}">All Contact</a>
+                {% url "sadmin:user_subscribe_list" as subscribetlist %}
+                <a href="{{subscribetlist}}" class="flex items-center space-x-4 px-2 py-2 hover:bg-cyan-700 {% if request.path == subscribetlist %}bg-cyan-700{% endif %}">All Subscriber</a>
+                {% url "sadmin:gallery_photo" as gallery %}
+                <a href="{{gallery}}" class="flex items-center space-x-4 px-2 py-2 hover:bg-cyan-700 {% if request.path == gallery %}bg-cyan-700{% endif %}">Gallery Photo</a>
+            </nav>
+
+        </div>
+        <div class="flex-1">
+            <div class="bg-white shadow px-2 py-4 flex justify-between">
+                <div>Header</div>
+                <div class="mr-3">
+                    {% if user.is_authenticated %}
+                        <a href="#" class="bg-white px-4 py-3">{{user.user_name}}</a>
+                        <a href="{% url "sadmin:sadminlogout" %}" class="px-4 py-2 rounded hover:bg-red-600 hover:text-white ">Log-out</a>
+                    {% else %}
+                        <a href="{% url "sadmin:samdinlogin" %}" class="px-4 py-2 rounded hover:bg-red-600 hover:text-white ">Log-in</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div>
+                {% block sadminMain %}
+                {% endblock sadminMain %}
+            </div>
+        </div>
+    </div>
+    
+    {% include 'bcga/basic/footer.html' %}
+    {% include 'bcga/basic/script.html' %}
+    {% block sadminScripts %}{% endblock sadminScripts %}
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends "super-admin/main.html" %}
+{% load static %}
+{% block sadminTitle %}
+Contact list
+{% endblock sadminTitle %}
+{% block sadminMain %}
+<div class="bg-cyan-600">
+    <div class="text-center py-4 text-3xl text-white">User Contact List</div>
+</div>
+<div class="px-2">
+    <table class="border-collapse table-fixed min-w-full">
+        <thead>
+        <tr>
+            <th col="2" class="text-start">User Name</th>
+            <th class="text-center">Email Address</th>
+            <th class="text-center">Subject</th>
+            <th class="text-center">Message</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for contact in contact_data %}
+                <tr class="bg-gray-300 hover:bg-gray-400 border border-1">
+                    <td class="py-3 text-start pl-3 line-clamp-1">{{contact.first_name}} {{contact.last_name}}</td>
+                    <td class="py-3 text-center">{{contact.email}}</td>
+                    <td class="py-3 text-center">
+                        {{contact.contact_sub}}
+                    </td>
+                    <td class="py-3 text-center">
+                        {{contact.contact_message|truncatechars:60}}
+                    </td>
+                </tr>
+            {% endfor %}
+    </table>
+</div>
+
+{% endblock sadminMain %}

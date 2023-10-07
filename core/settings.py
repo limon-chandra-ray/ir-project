@@ -6,9 +6,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-3*(#h9jds(z5gu=-5#x=(2=z%z@tb19e98s-&19ewd258su(ex'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*','bgbis.com','www.bgbis.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -21,8 +21,10 @@ INSTALLED_APPS = [
     'bcga.apps.BcgaConfig',
     'ckeditor',
     'studentTeam.apps.StudentteamConfig',
+    'teacherTeam.apps.TeacherteamConfig',
     'ir_project.apps.IrProjectConfig',
     'article.apps.ArticleConfig',
+    'sadmin.apps.SadminConfig'
 ]
 
 MIDDLEWARE = [
@@ -97,7 +99,7 @@ USE_I18N = True
 
 USE_TZ = True
 AUTH_USER_MODEL = "user.CustomUser"
-
+LOGIN_URL = '/login'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -113,6 +115,9 @@ else:
 MEDIA_URL = 'media/'
 if DEBUG:
     MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+    CKEDITOR_UPLOAD_PATH = "media/ckeditor/"
+else:
+    MEDIA_ROOT = '/home/bgbiscom/public_html/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -120,7 +125,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # CkEditor
+# CKEDITOR_BASEPATH = "/staticfiles/ckeditor/ckeditor/"
 CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+            'toolbar': 'classic',
+        },
     'default': {
         'skin': 'moono',
         # 'skin': 'office2013',

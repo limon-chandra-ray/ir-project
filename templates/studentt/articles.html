@@ -1,0 +1,48 @@
+{% extends "studentt/main.html" %}
+{% block studentMain %}
+<div class="bg-cyan-600">
+    <div class="text-center py-4 text-3xl text-white">All Topic</div>
+    <div class="flex justify-end mr-3 py-2">
+        <a href="{% url "studentTeam:create_article_view" %}" class="px-3 py-2 rounded text-white bg-cyan-700 hover:bg-cyan-800">Add New Article</a>
+    </div>
+</div>
+<div class="px-2">
+    <table class="table-fixed min-w-full">
+        <thead>
+        <tr>
+            <th >Title</th>
+            <th >Image</th>
+            <th >Topic</th>
+            <th >Created Date</th>
+            <th >Status</th>
+            <th >Actions</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+                <tr class="bg-gray-300 hover:bg-gray-400 border border-1">
+                    <td class="py-3 text-start pl-3 line-clamp-1">{{article.title|truncatechars:40}}</td>
+                    <td class="py-3 text-center">
+                        <img src="{{article.image.url}}" class="w-20 h-15">
+                    </td>
+                    <td class="py-3 text-center">{{article.topic.name}}</td>
+                    <td class="py-3 text-center">{{article.created_at|date:"d M Y"}}</td>
+                    <td class="py-3 text-center">
+                        {% if article.status == 0 %}
+                        Pending
+                        {% else %}
+                        Accepted
+                        {% endif %}
+                    </td>
+                    <td class="py-3 text-center">
+                        <a href="{% url "studentTeam:articleEdit" article.slug %}" class="px-3 py-2 bg-green-600 hover:bg-green-700 text-black rounded">Edit</a>
+                        <a href="{% url "studentTeam:articleDetail" article.slug %}" class="px-3 py-2 bg-sky-400 hover:bg-sky-500 text-black rounded">Details</a>
+                        <a href="{% url "studentTeam:articleDelete" article.slug %}" class="px-3 py-2 bg-red-600 hover:bg-red-700 text-black rounded">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock studentMain %}

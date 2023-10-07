@@ -1,0 +1,46 @@
+{% extends "studentt/main.html" %}
+{% block studentMain %}
+<div class="bg-cyan-600">
+    <div class="text-center py-4 text-3xl text-white">All Event</div>
+    
+</div>
+<div class="px-2">
+    <table class="border-collapse table-fixed min-w-full">
+        <thead>
+        <tr>
+            <th col="2">Full Name</th>
+            <th>Student Id</th>
+            <th>Phone Number</th>
+            <th>Department</th>
+            <th>Session</th>
+            <th>Present Year</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for event_user in event_participates %}
+                <tr class="bg-gray-300 hover:bg-gray-400 border border-1">
+                    <td class="py-3 text-start pl-3 line-clamp-1">
+                        {{event_user.full_name}}
+                    </td>
+                    <td class="py-3 text-center">
+                        {{event_user.student_id}}
+                    </td>
+                    <td class="py-3 text-center">
+                        {{event_user.phone_number}}
+                    </td>
+                    <td class="py-3 text-center">
+                        {{event_user.student_dept.dept_code}}
+                    </td>
+                    <td class="py-3 text-center">
+                        {{event_user.student_session.name}}
+                    </td>
+                    
+                    <td class="py-3 text-center">
+                        {{event_user.student_year}}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock studentMain %}

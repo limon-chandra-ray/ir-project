@@ -7,33 +7,22 @@
     
 </head>
 <body id="home">
-    
-    <div class="lg:h-screen h-screen w-full">
-        <div class="absolute  w-full">
-            
-            {% block headerImage %}
-            {% endblock headerImage %}
-            
-        </div>
-        <div class="relative">
-            {% include 'bcga/basic/header.html' %}
+    <header>
+        <div class="lg:h-[72.6vh] h-[40vh] w-full">
+            <div class="absolute  w-full">
+                {% block headerImage %}{% endblock headerImage %}
+            </div>
+            {% include "bcga/basic/header.html" %}
             <div class="lg:p-[0px] p-[32px] lg:mt-[100px] text-[#fff] text-center flex flex-col justify-center items-center space-y-4">
-                <h1 class="italic lg:text-[24px] text-[16px]">Simplifying Matters</h1>
-                <h1 class="text-[36px] font-semibold">SECURITY DISTILLERY</h1>
-                <div class="flex flex-col justify-center items-center">
-                    <h1 class="italic lg:text-[24px] text-[16px] text-center">The Security Distillery is an initiative from students for students.</h1>
-                    <h1 class="italic lg:text-[24px] text-[16px] text-center">We aim to turn complex security issues into simple, quality, accessible information for</h1>
-                    <h1 class="italic lg:text-[24px] text-[16px] text-center">students and researchers.</h1>
-                </div>
-                <a href="#" class="text-white uppercase bg-[#1989ae] py-2 px-6 rounded-2xl hover:bg-[#1191bb] font-semibold">Learn More</a>
+                {% block headerText %}{% endblock headerText %}
             </div>
         </div>
-    </div>
+    </header>
     <main class="">
         {% block bcgaMain %}{% endblock bcgaMain %}
     </main>
     {% include 'bcga/basic/footer.html' %}
-    
     {% include 'bcga/basic/script.html' %}
+    {% block bcgaScript %}{% endblock bcgaScript %}
 </body>
 </html>

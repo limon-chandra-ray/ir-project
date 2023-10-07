@@ -1,28 +1,240 @@
-<header class="text-[16px] font-semibold uppercase">
+<div class="relative">
+    <div class="text-[16px] font-semibold uppercase">
+        <nav class=" p-4">
+            <div class=" flex justify-between items-center">
+                <div class="text-white font-bold text-xl">
+                    <a href="{% url "bcga:home" %}"><img class="h-[50px] lg:h-[100px] w-[54.475px] lg:w-[108.963px]" src="https://th.bing.com/th/id/R.572e4f51d0a4d67669784df53026b5a7?rik=lv9i04y8yl33Dg&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2f3%2f33%2fVanamo_Logo.png&ehk=Ix3NOUWRAegY6L3gmUWwTNm0Gee%2faq3jB0ZwGhiKFRk%3d&risl=&pid=ImgRaw&r=0" alt=""></a>
+                </div>
+                <div class="hidden lg:block space-x-6">
+                    <a href="{% url "bcga:home" %}" class="text-white">Home</a>
+                    {% comment %} <div class="relative parent inline-block text-left">
+                        <a href="#" class="text-white">Podcasts</a>
+                        <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]" id="podcastGet">
+                            <!-- Dropdown items go here -->
+                            {% comment %} <a href="Podcasts.php" class="block px-4 py-2 text-white text-[14px]">Conversing Crime</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Intelligence Espresso</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Sips & Quips</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Spin-Off Series</a>
+                        </div>
+                    </div>
+                    <div class="relative parent inline-block text-left">
+                        <a href="#" class="text-white">Interviews</a>
+                        <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]" id="interviewGet">
+                            <!-- Dropdown items go here -->
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Conversing Covid</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Covid Continues</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Single pieces</a>
+                        </div>
+                    </div>
+                    {% endcomment %}
+                    <div class="relative parent inline-block text-left">
+                        <a href="#" class="text-white">Topics</a>
+                        <div class="hidden absolute child z-10 py-2 w-[350px] bg-[#212121]" id="topicGet">
+                
+                        </div>
+                    </div>
+                    <div class="relative parent inline-block text-left">
+                        <a href="#" class="text-white">Regions</a>
+                        <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]" id="regionGet">
+                        </div>
+                    </div>                                                                  
+                    <div class="relative parent inline-block text-left">
+                        <a href="#" class="text-white">Events</a>
+                        <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]">
+                            <!-- Dropdown items go here -->
+                            <a href="{% url "bcga:past_event" %}" class="block px-4 py-2 text-white text-[14px]">Past Events</a>
+                            <a href="{% url "bcga:new_event" %}" class="block px-4 py-2 text-white text-[14px]">Upcoming Events</a>
+                        </div>
+                    </div>
+                    <a href="#" class="text-white">Event Reports</a>
+                    <div class="relative parent inline-block text-left">
+                        <a href="#" class="text-white">About</a>
+                        <div class="hidden absolute child z-10 py-2 w-[120px] bg-[#212121]">
+                            <!-- Dropdown items go here -->
+                            <a href="{% url "bcga:about_us" %}" class="block px-4 py-2 text-white text-[14px]">About Us</a>
+                            <div class="relative parent2 inline-block text-left">
+                                <a href="#" class="block px-4 py-2 text-white text-[14px]">Our Team</a>
+                                <div class="hidden absolute child2 z-10 ml-[50px] py-2 w-[120px] bg-[#212121]">
+                                    <!-- Dropdown items go here -->
+                                    <a href="{% url "bcga:teacher_team" %}" class="block px-4 py-2 text-white text-[14px]">Faculty</a>
+                                    <a href="{% url "bcga:student_team" %}" class="block px-4 py-2 text-white text-[14px]">Student</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{% url "bcga:archive_view" %}" class="text-white">Archive</a>
+                    <a href="{% url "bcga:contact_us" %}" class="text-white border-2 border-solid border-white py-2 px-4 rounded-2xl hover:bg-white hover:text-black">Contact Us</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu_toggle" class="text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-8 w-8">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="sidebar" class="lg:hidden fixed top-0 left-0 h-screen bg-[#212121] w-64 text-white transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-end p-4" >
+                <div id="close">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                      </svg>
+                </div>
+            </div>
+            <div class="flex flex-col  space-y-4 p-4">
+                    <a href="#" class="text-white">Home</a>
+                    
+                    <div class="relative parent inline-block text-left">
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="bg-white" height="1em" viewBox="0 0 448 512">
+                            <!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" stroke="white"/>
+                            </svg>
+                            <a href="#" class="text-white">Podcasts</a>
+                        </div>
+                        <div class="hidden absolute child z-10 ml-[135px] mt-[-35px] py-2 w-[250px] bg-[#212121]" id="podcastGet">
+                            <!-- Dropdown items go here -->
+                            {% comment %} <a href="#" class="block px-4 py-2 text-white text-[14px]">Conversing Crime</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Intelligence Espresso</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Sips & Quips</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Spin-Off Series</a> {% endcomment %}
+                        </div>
+                    </div>
+                    
+                    <div class="relative parent inline-block text-left">
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="bg-white" height="1em" viewBox="0 0 448 512">
+                            <!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" stroke="white"/>
+                            </svg>
+                            <a href="#" class="text-white">Topics</a>
+                        </div>
+                        <div class="hidden absolute child z-10 ml-[135px] mt-[-35px] py-2 w-[250px] bg-[#212121]">
+                            <!-- Dropdown items go here -->
+                            <a href="#" class="block px-4 py-1 text-white text-[14px]">All Articles</a>
+                            <a href="#" class="block px-4 py-1 text-white text-[14px]">Arms and Disarmament</a>
+                            <a href="#" class="block px-4 py-1 text-white text-[14px]">Environmental and Energy Security</a>
+                            <a href="#" class="block px-4 py-1 text-white text-[14px]">Foreign Policy</a>
+                            <a href="#" class="block px-4 py-1 text-white text-[14px]">Gender and Security</a>
+                            <a href="#" class="block px-4 py-1 text-white text-[14px]">Human Security</a>
+                            <a href="#" class="block px-4 py-1 text-white text-[14px]">Intelligence</a>
+                            <a href="#" class="block px-4 py-1 text-white text-[14px]">National Security</a>
+                            <a href="#" class="block px-4 py-1 text-white text-[14px]">Organised Crime</a>
+                            <a href="#" class="block px-4 py-1 text-white text-[14px]">Political Affairs</a>
+                            <a href="#" class="block px-4 py-1 text-white text-[14px]">Public health</a>
+                            <a href="#" class="block px-4 py-1 text-white text-[14px]">Technology</a>
+                            <a href="#" class="block px-4 py-1 text-white text-[14px]">Terrorism</a>
+                            <a href="#" class="block px-4 py-1 text-white text-[14px]">Theories,Concepts and Approaches</a>
+                        </div>
+                    </div>
+                    <div class="relative parent inline-block text-left">
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="bg-white" height="1em" viewBox="0 0 448 512">
+                            <!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" stroke="white"/>
+                            </svg>
+                            <a href="#" class="text-white">Interviews</a>
+                        </div>
+                        <div class="hidden absolute child z-10 ml-[135px] mt-[-35px] py-2 w-[250px] bg-[#212121]">
+                            <!-- Dropdown items go here -->
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Conversing Covid</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Covid Continues</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Single pieces</a>
+                        </div>
+                    </div>
+                    <div class="relative parent inline-block text-left">
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="bg-white" height="1em" viewBox="0 0 448 512">
+                            <!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" stroke="white"/>
+                            </svg>
+                            <a href="#" class="text-white">Regions</a>
+                        </div>
+                        <div class="hidden absolute child z-10 ml-[135px] mt-[-35px] py-2 w-[250px] bg-[#212121]" id="regionGet">
+                            <!-- Dropdown items go here -->
+                            {% comment %} <a href="#" class="block px-4 py-2 text-white text-[14px]">Asia Pacific</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">South Asia</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Africa</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Europe</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Middle East</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">North America</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Latin America</a> {% endcomment %}
+                        </div>
+                    </div>
+                    <div class="relative parent inline-block text-left">
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="bg-white" height="1em" viewBox="0 0 448 512">
+                            <!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" stroke="white"/>
+                            </svg>
+                            <a href="#" class="text-white">Events</a>
+                        </div>
+                        <div class="hidden absolute child z-10 ml-[135px] mt-[-35px] py-2 w-[250px] bg-[#212121]">
+                            <!-- Dropdown items go here -->
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Past Events</a>
+                            <a href="#" class="block px-4 py-2 text-white text-[14px]">Upcoming Events</a>
+                        </div>
+                    </div>
+                    <a href="#" class="text-white">Event Reports</a>
+                    <div class="relative parent inline-block text-left">
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="bg-white" height="1em" viewBox="0 0 448 512">
+                            <!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" stroke="white"/>
+                            </svg>
+                            <a href="#" class="text-white">About</a>
+                        </div>
+                        <div class="hidden absolute child z-10 ml-[135px] mt-[-35px] py-2 w-[250px] bg-[#212121]">
+                            <!-- Dropdown items go here -->
+                            <a href="#" class="block py-2 text-white text-[14px]">About Us</a>
+                            <div class="relative parent2 inline-block text-left">
+                                    <div class="flex items-center space-x-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="bg-white" height="1em" viewBox="0 0 448 512">
+                                        <!-- Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" stroke="white"/>
+                                        </svg>
+                                        <a href="#" class="block py-2 text-white text-[14px]">Our Team</a>
+                                    </div>
+                                    <div class="hidden absolute child2 z-10 ml-[100px] mt-[-20px] py-2 w-[150px] bg-[#212121]">
+                                        <!-- Dropdown items go here -->
+                                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Faculty</a>
+                                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Student</a>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="text-white">Archive</a>
+                </div>
+                <div class="mt-[150px] p-4 w-[100%]">
+                    <a href="#" class="text-white w-[100%] text-center border-2 border-solid border-white py-2 px-4 rounded-2xl hover:bg-white hover:text-black">Contact Us</a>
+                </div>
+        </div>
+</div>
+
+
+{% comment %} <header class="text-[16px] font-semibold uppercase">
     <nav class=" p-4">
         <div class=" flex justify-between items-center">
             <div class="text-white font-bold text-xl">
                 <a href="#"><img class="h-[50px] lg:h-[100px] w-[54.475px] lg:w-[108.963px]" src="https://th.bing.com/th/id/R.572e4f51d0a4d67669784df53026b5a7?rik=lv9i04y8yl33Dg&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2f3%2f33%2fVanamo_Logo.png&ehk=Ix3NOUWRAegY6L3gmUWwTNm0Gee%2faq3jB0ZwGhiKFRk%3d&risl=&pid=ImgRaw&r=0" alt=""></a>
             </div>
+
+
             <div class="hidden lg:block space-x-6">
                 <a href="{% url 'bcga:home' %}" class="text-white">Home</a>
                 <div class="relative parent inline-block text-left">
                     <a href="#" class="text-white">Podcasts</a>
                     <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]" id="podcastGet">
                         <!-- Dropdown items go here -->
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Conversing Crime</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Intelligence Espresso</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Sips & Quips</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Spin-Off Series</a>
+                        
                     </div>
                 </div>
                 <div class="relative parent inline-block text-left">
                     <a href="#" class="text-white">Interviews</a>
                     <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]" id="interviewGet">
                         <!-- Dropdown items go here -->
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Conversing Covid</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Covid Continues</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Single pieces</a>
+                       
                     </div>
                 </div>
                 <div class="relative parent inline-block text-left">
@@ -35,13 +247,7 @@
                     <a href="#" class="text-white">Regions</a>
                     <div class="hidden absolute child z-10 py-2 w-[200px] bg-[#212121]" id="regionGet">
                         <!-- Dropdown items go here -->
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Asia Pacific</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">South Asia</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Africa</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Europe</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Middle East</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">North America</a>
-                        <a href="#" class="block px-4 py-2 text-white text-[14px]">Latin America</a>
+                        
                     </div>
                 </div>                                                                  
                 <div class="relative parent inline-block text-left">
@@ -216,4 +422,4 @@
                 <a href="#" class="text-white w-[100%] text-center border-2 border-solid border-white py-2 px-4 rounded-2xl hover:bg-white hover:text-black">Contact Us</a>
             </div>
     </div>
-</header>
+</header> {% endcomment %}

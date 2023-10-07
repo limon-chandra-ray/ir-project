@@ -1,11 +1,24 @@
 {% extends 'bcga/basic/main.html' %}
 {% block headerImage %}
-{% if page_info != '' %}
-<img class="lg:h-screen h-screen w-full" src="{{page_info.image.url}}" alt="">
-{% else %}
-<img class="lg:h-screen h-screen w-full" src="https://th.bing.com/th/id/OIP.bXeJ_pb9EdW1X7BBZE_OegHaHa?pid=ImgDet&w=600&h=600&rs=1" alt="">
-{% endif %}
+    {% if page_info != '' %}
+        <img class="lg:h-[72.6vh] h-[40vh] w-full" src="{{page_info.image.url}}" alt="">
+    {% else %}
+        <img class="lg:h-[72.6vh] h-[40vh] w-full" src="https://th.bing.com/th/id/OIP.bXeJ_pb9EdW1X7BBZE_OegHaHa?pid=ImgDet&w=600&h=600&rs=1" alt="">
+    {% endif %}
 {% endblock headerImage %}
+
+{% block headerText %}
+<h1 class="italic font-serif font-'Adobe Garamond Pro' lg:text-[24px] text-[16px]">Simplifying Matters</h1>
+<h1 class="text-[36px] font-semibold">SECURITY DISTILLERY</h1>
+<div class="flex flex-col justify-center items-center">
+    <h1 class="italic font-serif font-'Adobe Garamond Pro' lg:text-[24px] text-[16px] text-center">The Security Distillery is an initiative from students for students.</h1>
+    <h1 class="italic font-serif font-'Adobe Garamond Pro' lg:text-[24px] text-[16px] text-center">We aim to turn complex security issues into simple, quality, accessible information for</h1>
+    <h1 class="italic font-serif font-'Adobe Garamond Pro' lg:text-[24px] text-[16px] text-center">students and researchers.</h1>
+</div>
+<a href="#" class="text-white uppercase bg-[#1989ae] py-2 px-6 rounded-2xl hover:bg-[#1191bb] font-semibold">Learn More</a>
+{% endblock headerText %}
+
+
 {% block bcgaMain %}
 <div class="lg:mx-[210px] mx-0 lg:px-[32px] lg:px-[20px] px-0 lg:pt-[96px] pt-[40px]">
     <div class="flex lg:flex-row flex-col justify-between">
@@ -49,51 +62,36 @@
                         <!-- Slide 1 -->
                         <div class="carousel-slide flex w-full">
                             <div class="flex flex-col lg:flex-row justify-between w-full">
-                                <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
-                                    <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
-                                    <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">DRUGS AND DIPLOMACY IN SYRIA</a>
-                                    <div>
-                                        <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
-                                        <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
+                                {% for article in latest_article %}
+                                    <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
+                                        <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
+                                        <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">DRUGS AND DIPLOMACY IN SYRIA</a>
+                                        <div>
+                                            <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
+                                            <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
+                                        </div>
+                                        <p>This article tackles the involvement of the Syrian government in drug trafficking, to then delve into and evaluate the economic, diplomatic and military measures undertaken by Western governments and Arab states to curtail the smuggling of Captagon.</p>
+                                        <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
                                     </div>
-                                    <p>This article tackles the involvement of the Syrian government in drug trafficking, to then delve into and evaluate the economic, diplomatic and military measures undertaken by Western governments and Arab states to curtail the smuggling of Captagon.</p>
-                                    <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
-                                </div>
-                                <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
-                                    <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
-                                    <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">DRUGS AND DIPLOMACY IN SYRIA</a>
-                                    <div>
-                                        <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
-                                        <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
-                                    </div>
-                                    <p>The crisis in Sudan has unfolded due to the outbreak of conflict between the Rapid Support Force (RSF) and the Sudanese Armed Forces (SAF), which has resulted in mass civilian displacement and a dire need for aid throughout the country [1]. These events echo the Somalian human security crisis of 1993 resulted in the starvation of 300,000 Somalis due to regime collapse and conflict between several rival factions [2]. Despite clear differences between these two cases, the similarities of their outcomes are clear, as both conflicts have produced mass food insecurity, civilian suffering, and potential regional instability [3]. A lack of institutional stability has been a common causal factor in their human security crises [4].</p>
-                                    <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
-                                </div>
-                                <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
-                                    <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
-                                    <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">DRUGS AND DIPLOMACY IN SYRIA</a>
-                                    <div>
-                                        <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
-                                        <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
-                                    </div>
-                                    <p>This article tackles the involvement of the Syrian government in drug trafficking, to then delve into and evaluate the economic, diplomatic and military measures undertaken by Western governments and Arab states to curtail the smuggling of Captagon.</p>
-                                    <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
-                                </div>
+                                {% endfor %}
+                                
                             </div>
                         </div>
                         <!-- Slide 2 -->
                         <div class="carousel-slide flex w-[100%]">
                             <div class="flex flex-col lg:flex-row justify-between w-[100%]">
-                                <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
-                                    <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
-                                    <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">SAMRAT</a>
-                                    <div>
-                                        <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
-                                        <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
+                                {% for article in latest_article2 %}
+                                    <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
+                                        <img class="h-[204px]" src="https://th.bing.com/th/id/OIP.Rf48dwQOv7mdXFFdEjY9DgHaFr?pid=ImgDet&rs=1" alt="">
+                                        <a href="#" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">SAMRAT</a>
+                                        <div>
+                                            <h1 class="text-[rgba(26,26,26,.7)]">Jul 27, 2023</h1>
+                                            <h1 class="text-[rgba(26,26,26,.7)]">Captagon, Syria, Rapprochement, Arab League, Sanctions</h1>
+                                        </div>
+                                        <p>This article tackles the involvement of the Syrian government in drug trafficking, to then delve into and evaluate the economic, diplomatic and military measures undertaken by Western governments and Arab states to curtail the smuggling of Captagon.</p>
+                                        <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
                                     </div>
-                                    <p>This article tackles the involvement of the Syrian government in drug trafficking, to then delve into and evaluate the economic, diplomatic and military measures undertaken by Western governments and Arab states to curtail the smuggling of Captagon.</p>
-                                    <a class="text-blue-400" href="#">Read More <span class="arrow">&rightarrow;</span></a>
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>

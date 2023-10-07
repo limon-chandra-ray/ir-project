@@ -1,0 +1,73 @@
+{% extends "studentt/main.html" %}
+{% block studentStyle %}
+<style>
+    .ck-editor__editable_inline {
+        min-height: 400px;
+    }
+    </style>
+
+{% endblock studentStyle %}
+{% block studentMain %}
+<div class="flex justify-center">
+    <div class="w-3/4">
+        <form action="{% url 'studentTeam:event_create_save' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="my-2">
+                <div class="py-2 text-[20px]">Event Title</div>
+                <input type="text" name="title" class="w-full p-2 text-[20px] border-2 border-gray-600 rounded" placeholder="Event Title" required>
+            </div>
+            <div class="my-2 flex">
+                <div class="w-2/3">
+                    <div class="py-2 text-[20px]">Event Cheaf Guest</div>
+                    <input type="text" name="cheaf_guest" class="w-full p-2 text-[20px] border-2 border-gray-600 rounded" placeholder="cheaf guest name" required>
+                </div>
+                <div class="w-1/3">
+                    <div class="py-2 text-[20px]">Event Photo</div>
+                    <input type="file" name="image" class="w-full border-2 border-gray-600 p-2 rounded" required>
+                </div>
+               
+            </div>
+            <div class="my-2 flex">
+                <div class="w-1/3">
+                    <div class="py-2 text-[20px]">Event  Date</div>
+                    <input type="date" name="event_date" placeholder="Event date" required>
+                </div>
+                <div class="w-1/3">
+                    <div class="py-2 text-[20px]">Event Start Time</div>
+                    <input type="time" name="start_time" id="start_time" required>
+                </div>
+                <div class="w-1/3">
+                    <div class="py-2 text-[20px]">Event End Time</div>
+                    <input type="time" name="end_time" id="end_time" required>
+                </div>
+            </div>
+            <div>
+                <div class="py-2 text-[20px]">Event Description</div>
+                <textarea id="event_editor" name="event_content" class="w-64" rows="30" required>
+                </textarea>
+            </div>
+            <div>
+                <div class="py-2 text-[20px]">Event Cheaf Guest Description</div>
+                <textarea id="cheafGuest_editor" name="cheafGuest_content" class="w-64" rows="30" required>
+                </textarea>
+            </div>
+            <div class="py-2 w-full flex justify-center">
+                <button type="submit" class="border-2 border-gray-600
+                 bg-green-600 
+                 rounded
+                 text-[20px] px-4 py-2 w-1/3 text-white
+                 hover:bg-green-700 
+                 ">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+        
+{% endblock studentMain %}
+{% block studentScripts %}
+    <script>
+        ckeditorFunction("event_editor")
+        ckeditorFunction("cheafGuest_editor")
+    </script>
+{% endblock studentScripts %}

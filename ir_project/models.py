@@ -12,6 +12,9 @@ class Topic(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.name
+
     def save(self,*args, **kwargs):
         self.slug = slugify(self.name)
 
@@ -20,6 +23,7 @@ class Topic(models.Model):
             if existing.image != self.image:
                 existing.image.delete(save=False)
         super(Topic,self).save(*args, **kwargs)
+    
     @receiver(pre_delete,sender = "ir_project.Topic")
     def topic_image_delete_signal(instance,sender,*args, **kwargs):
         for field in instance._meta.fields:
@@ -98,3 +102,49 @@ class Interview(models.Model):
                 logo = getattr(instance,field.name)
                 if logo:
                     logo.delete(save=False)
+
+class UserContact(models.Model):
+    first_name = models.CharField(max_length=250)
+    last_name = models.CharField(max_length=250)
+    email = models.EmailField(max_length=250)
+    contact_sub = models.CharField(max_length=250)
+    contact_message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True,null=True,blank=True)
+    updated_at = models.DateTimeField(auto_now=True,null=True,blank=True)
+    def __str__(self):
+        return self.first_name +" "+ self.last_name
+    
+
+class UserSubcribe(models.Model):
+    first_name = models.CharField(max_length=250)
+    last_name = models.CharField(max_length=250)
+    email = models.EmailField(max_length=250)
+    created_at = models.DateTimeField(auto_now_add=True,null=True,blank=True)
+    updated_at = models.DateTimeField(auto_now=True,null=True,blank=True)
+
+    def __str__(self):
+        return self.first_name +" "+ self.last_name
+    
+class Gallery(models.Model):
+    title = models.CharField(max_length=250,null=True,blank=True)
+    image = models.ImageField(upload_to='gallery/')
+    created_at = models.DateTimeField(auto_now_add=True,null=True,blank=True)
+    updated_at = models.DateTimeField(auto_now=True,null=True,blank=True)
+
+    def save(self,*args, **kwargs):
+
+        if self.id:
+            existing = get_object_or_404(Gallery,id = self.id)
+            if existing.image != self.image:
+                existing.image.delete(save=False)
+        super(Gallery,self).save(*args, **kwargs)
+
+    @receiver(pre_delete,sender = "ir_project.Gallery")
+    def gallery_image_delete_signal(instance,sender,*args, **kwargs):
+        for field in instance._meta.fields:
+            if field.name == 'image':
+                logo = getattr(instance,field.name)
+                if logo:
+                    logo.delete(save=False)
+
+    

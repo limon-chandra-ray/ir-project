@@ -1,0 +1,32 @@
+{% extends "super-admin/main.html" %}
+{% load static %}
+{% block sadminTitle %}
+Subscribe list
+{% endblock sadminTitle %}
+{% block sadminMain %}
+<div class="bg-cyan-600">
+    <div class="text-center py-4 text-3xl text-white">Subscriber List</div>
+</div>
+<div class="px-2">
+    <table class="border-collapse table-fixed min-w-full">
+        <thead>
+        <tr>
+            <th col="2" class="text-center">First Name</th>
+            <th col="2" class="text-center">Last Name</th>
+            <th class="text-center">Email Address</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for subscribe in subscribe_data %}
+                <tr class="bg-gray-300 hover:bg-gray-400 border border-1">
+                    <td class="py-3 text-center pl-3 line-clamp-1">{{subscribe.first_name}}</td>
+                    <td class="py-3 text-center">{{subscribe.last_name}}</td>
+                    <td class="py-3 text-center">
+                        {{subscribe.email}}
+                    </td>
+                </tr>
+            {% endfor %}
+    </table>
+</div>
+
+{% endblock sadminMain %}

@@ -1,5 +1,36 @@
 {% extends 'bcga/basic/main.html' %}
+{% block headerImage %}
+<img class="lg:h-[72.6vh] h-[40vh] w-full" src="https://th.bing.com/th/id/R.3f454c289a8f557be95847f4a4a58967?rik=lc4ql2FiAADFAw&pid=ImgRaw&r=0" alt="">
+{% endblock headerImage %}
+{% block headerText %}
+<h1 class="font-['Roboto'] lg:text-[44px] text-[24px] #fff font-[700px] uppercase">Region</h1> 
+{% endblock headerText %}
 {% block bcgaMain %}
 
-
+<div class="lg:mx-[248px] mx-0 lg:px-[32px] px-0 lg:py-[96px] py-[40px] flex justify-center">
+    <div class="flex lg:flex-row flex-col justify-between">
+        <div class="lg:w-[245px] w-[100%] p-[17px] lg:p-0">
+            <div class=" flex flex-col space-y-2 text-[rgba(26,26,26,.4)] font-serif">
+                <h1 class="text-[#00746b] text-[22px]">Regions</h1>
+                {% for region in regions %}
+                    {% url "bcga:region_topic" region.slug as region_slug %}
+                    <a href="{{region_slug}}" class="text-[14px] hover:text-black {% if request.path == region_slug %}text-black{% endif %}">{{region.name|upper}}</a>
+                {% endfor %}
+                
+            </div>                                                  
+        </div>
+        <div class="lg:w-[745px] w-[100%] text-[rgba(26,26,26,.7)]">
+            <div class="grid lg:grid-cols-2 grid-cols-1 lg:gap-[60px] gap-0 p-[17px]">
+                {% for article in topic_articles %}
+                    <div class="flex flex-col space-y-2">
+                        <img src="{{article.image.url}}" alt="">
+                        <a href="{% url "bcga:article_detial" article.slug %}" class="text-[20px] font-semibold hover:text-[#3d9991]">{{article.title|truncatechars:90}}</a>
+                        <div>{{article.artice_content|truncatewords:70|safe}}</div>
+                        <p>{{article.created_at|date:"M d, Y"}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock bcgaMain %}

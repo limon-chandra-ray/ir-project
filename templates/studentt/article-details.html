@@ -1,0 +1,16 @@
+{% extends "studentt/main.html" %}
+{% block studentMain %}
+<div class="lg:h-[26.6vh] h-[40vh] w-full">
+    <div class="absolute  w-full">
+        {% if article.image != "" %}
+            <img class="lg:h-[26.6vh] h-[40vh] w-full" src="{{article.image.url}}" alt="">
+        {% else %}
+            <img class="lg:h-[26.6vh] h-[40vh] w-full" src="https://npr.brightspotcdn.com/dims4/default/679aa4a/2147483647/strip/true/crop/6000x4000+0+0/resize/880x587!/quality/90/?url=http:%2F%2Fnpr-brightspot.s3.amazonaws.com%2F05%2F3c%2Fd06511894002b1658dcc885b56cc%2Fmicrosoftteams-image.png" alt="">
+        {% endif %}
+    </div>
+    <div class="lg:p-[0px] h-full p-[32px] text-[#fff] text-center flex flex-col justify-center items-center space-y-4">
+        <h1 class="font-['Roboto'] h-100 z-10 lg:text-[44px] text-[24px] #fff font-[700px] uppercase">{{article.title}}</h1> 
+    </div>
+</div>
+{{article.artice_content|safe}}
+{% endblock studentMain %}

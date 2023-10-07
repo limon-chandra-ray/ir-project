@@ -1,5 +1,28 @@
 {% extends 'bcga/basic/main.html' %}
+{% block headerImage %}
+    <img class="lg:h-[72.6vh] h-[40vh] w-full" src="https://th.bing.com/th/id/R.d34cef3b782014355e7b30c79139dce9?rik=GSs49M46k7cVhg&riu=http%3a%2f%2fwww.earlychildhoodeducationzone.com%2fwp-content%2fuploads%2f2015%2f01%2fedu-conferences-2015.jpg&ehk=s5AfNlBll1d3Aeb3ayWaF5z2j%2bK2Sym%2bSM12g3E9TK0%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="">
+{% endblock headerImage %}
+{% block headerText %}
+    <h1 class="font-['Roboto'] lg:text-[44px] text-[24px] #fff font-[700px] uppercase">Our Teacher Team</h1> 
+{% endblock headerText %}
 {% block bcgaMain %}
-
-
+<div class="lg:mx-[210px] mx-0 lg:px-[32px] px-[17px] lg:py-[96px] py-[40px] grid lg:grid-cols-3 grid-cols-1 gap-8">
+    {% for teacher in teachers %}
+        <div class="shadow-xl bg-[#fff] rounded-md lg:w-[300px] w-[100%] flex flex-col justify-center items-center">
+            <div>
+                <a href="#"><img class="h-[200px] w-[200px] rounded-[100%]" src="{{teacher.image.url}}" alt=""></a>
+            </div>
+            <div class="px-[20px]">
+                <div class="text-[#54595F] pb-[30px] pt-[15px] text-[18px] text-center">
+                    <div>
+                        <p class="text-[32px] font-bold">{{teacher.user.user_name}}</p>
+                    </div>
+                    <p>{{teacher.user.email}}</p>
+                    <p>{{teacher.phone_number}}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    
+</div>
 {% endblock bcgaMain %}

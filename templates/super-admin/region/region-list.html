@@ -1,0 +1,109 @@
+{% extends "super-admin/main.html" %}
+{% block sadminTitle %}
+Region list
+{% endblock sadminTitle %}
+{% block sadminMain %}
+<div class="bg-cyan-600">
+    <div class="text-center py-4 text-3xl text-white">All Region</div>
+    <div class="flex justify-end mr-3 py-2">
+        <button
+            type="button"
+            class="py-3 px-2 bg-cyan-700 text-white"
+            id="regionAdd"
+            >
+            Add New Region
+        </button>
+    </div>
+</div>
+<div class="px-2">
+    <table class="border-collapse table-fixed min-w-full">
+        <thead>
+        <tr>
+            <th col="2">Title</th>
+            <th>Image</th>
+            
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for region in regions %}
+                <tr class="bg-gray-300 hover:bg-gray-400 border border-1">
+                    <td class="py-3 text-start pl-3 line-clamp-1">{{region.name}}</td>
+                    <td class="py-3 text-center">
+                        {% if region.image %}
+                            <img src="{{region.image.url}}" class="w-20 h-15">
+                        {% else %}
+                        <img src="https://images.squarespace-cdn.com/content/v1/5d94a2dd7046bc4760c90517/1689063784462-2WLXG1IV4VV7NQGRLDQT/Adria%CC%81n%27s+article+-+War+in+Sudan+%28I%29.jpg?format=1500w" class="w-20 h-15">
+                        {% endif %}
+                    </td>
+                    
+                    <td class="py-3 text-center">
+                        <button type="button" data-region="{{region.id}}" id="editRegion" class="px-3 py-2 bg-green-600 hover:bg-green-700 text-black rounded">Edit</button>
+                        <a href="{% url "sadmin:region_delete" region.slug %}" class="px-3 py-2 bg-red-600 hover:bg-red-700 text-black rounded">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% include "super-admin/region/add-region.html" %}
+{% include "super-admin/region/edit-region.html" %}
+{% endblock sadminMain %}
+{% block sadminScripts %}
+<script>
+    $("#regionAdd").on('click',()=>{
+        $("#successModal").removeClass("hidden");
+    });
+   
+    $("#successCloseButton").on("click", ()=>{
+        $("#successModal").addClass("hidden");
+    });
+
+    var closeButton = document.querySelectorAll('#modalClose');
+    closeButton.forEach((c_button)=>{
+        c_button.addEventListener('click',()=>{
+            $("#regionEditModal").addClass("hidden");
+        })
+   })
+    $("#cancleButton").on("click", ()=>{
+        $("#successModal").addClass("hidden");
+    });
+
+
+    var all_editRegion = document.querySelectorAll('#editRegion');
+    all_editRegion.forEach((edit_region)=>{
+        edit_region.addEventListener('click',()=>{
+            region_id = edit_region.getAttribute('data-region')
+            $.ajax({
+                type:"POST",
+                url:"{% url 'sadmin:region_get' %}",
+                data:{
+                    region:region_id,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}',
+                },
+                success:(res)=>{
+                    if(res['status'] == 'Success'){
+                        $("#region_prev_image").empty()
+                        $("#edit_region_image").addClass('hidden');
+                        $("#regionEditModal").removeClass("hidden");
+                        var region = res['region']
+                        $("#edit_region_name").val(region[1])
+                        if(region[2] != ''){
+                            var image = '<img id="editShowImage" src="/media/'+region[2]+'">';
+                        }else{
+                            var image = '<img id="editShowImage" src="https://images.squarespace-cdn.com/content/v1/5d94a2dd7046bc4760c90517/1689063784462-2WLXG1IV4VV7NQGRLDQT/Adria%CC%81n%27s+article+-+War+in+Sudan+%28I%29.jpg?format=1500w">';
+                        }
+                        $("#region_id").val(region[0])
+                        $("#region_prev_image").append(image)
+                    }
+                    
+                }
+            })
+        })
+    })
+    $("#edit_region_image").on('change',()=>{
+        var topic_img = document.getElementById('edit_region_image');
+        $("#editShowImage").attr('src',URL.createObjectURL(topic_img.files[0]))
+    })
+</script>
+{% endblock sadminScripts %}

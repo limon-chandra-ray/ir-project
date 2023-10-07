@@ -1,5 +1,30 @@
 {% extends 'bcga/basic/main.html' %}
+{% block headerImage %}
+<img class="lg:h-[72.6vh] h-[40vh] w-full" src="https://th.bing.com/th/id/R.d34cef3b782014355e7b30c79139dce9?rik=GSs49M46k7cVhg&riu=http%3a%2f%2fwww.earlychildhoodeducationzone.com%2fwp-content%2fuploads%2f2015%2f01%2fedu-conferences-2015.jpg&ehk=s5AfNlBll1d3Aeb3ayWaF5z2j%2bK2Sym%2bSM12g3E9TK0%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="">
+{% endblock headerImage %}
+{% block headerText %}
+<h1 class="font-['Roboto'] lg:text-[44px] text-[24px] #fff font-[700px] uppercase">Events</h1> 
+{% endblock headerText %}
 {% block bcgaMain %}
-
+<div class="lg:mx-[210px] mx-0 lg:px-[32px] px-0 lg:py-[96px] py-[40px] flex space-y-4 flex-col justify-center">
+    {% for event in events %}
+        <div class="w-[100%] flex lg:flex-row flex-col justify-between space-x-4">
+            <div class="lg:w-[35%] w-[100%] p-[17px] lg:p-0">
+                <a href="{% url "bcga:event_detail" event.slug %}" class="flex justify-end"><img class="w-2/3 h-2/3" src="{{event.image.url}}" alt=""></a>
+            </div>
+            <div class="lg:w-[65%] w-[100%] p-[17px] lg:p-0 flex flex-col space-y-4 font-['adobe-garamond-pro'] text-[rgba(26,26,26,.7)]">
+                <a href="{% url "bcga:event_detail" event.slug %}" class="text-[28px] text-[rgba(26,26,26,.9)]">{{event.title|truncatechars:100}}</a>
+                <div>
+                    <h1 class="text-[20px] font-['Roboto'] text-[rgba(26,26,26,.4)]">{{event.event_date|date:"l F d,Y"}}</h1>
+                    <h1 class="text-[20px] font-['Roboto'] text-[rgba(26,26,26,.4)]">{{event.event_start|date:"h:i A"}} to {{event.event_end|date:"h:i A"}}</h1>
+                </div>
+                <div class="text-[18px] italic font-['adobe-garamond-pro']">
+                    {{event.event_content|truncatechars_html:220|safe}}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+   
+</div>
 
 {% endblock bcgaMain %}

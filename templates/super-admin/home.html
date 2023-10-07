@@ -1,0 +1,41 @@
+{% extends "super-admin/main.html" %}
+{% block sadminTitle %}
+Dashboard
+{% endblock sadminTitle %}
+{% block sadminMain %}
+<div class="bg-cyan-600">
+    <div class="text-center py-4 text-3xl text-white">Dashboard</div>
+    
+</div>
+<div class="px-2">
+    <div class="overflow-x-auto h-screen gap-x-4 overflow-y-auto p-6">
+        <div class="grid grid-cols-3 gap-4 ">
+            <div class=" bg-cyan-600 text-white flex flex-col py-4 px-3 justify-center items-center hover:bg-cyan-700 rounded">
+                <h1 class="text-3xl  text-[500] text-white">Total Event</h1>
+                <div class="text-2xl text-[700] text-white">{{event}}</div>
+            </div>
+            <div class=" bg-cyan-600 text-white flex flex-col py-4 px-3 justify-center items-center hover:bg-cyan-700 rounded">
+                <h1 class="text-3xl  text-[500] text-white">Total Article</h1>
+                <div class="text-2xl text-[700] text-white">{{article}}</div>
+            </div>
+            <div class=" bg-cyan-600 text-white flex flex-col py-4 px-3 justify-center items-center hover:bg-cyan-700 rounded">
+                <h1 class="text-3xl  text-[500] text-white">Total Student</h1>
+                <div class="text-2xl text-[700] text-white">{{student}}</div>
+            </div>
+            <div class=" bg-cyan-600 text-white flex flex-col py-4 px-3 justify-center items-center hover:bg-cyan-700 rounded">
+                <h1 class="text-3xl  text-[500] text-white">Total Teacher</h1>
+                <div class="text-2xl text-[700] text-white">{{teacher}}</div>
+            </div>
+            <div class=" bg-cyan-600 text-white flex flex-col py-4 px-3 justify-center items-center hover:bg-cyan-700 rounded">
+                <h1 class="text-3xl  text-[500] text-white">Total Contact</h1>
+                <div class="text-2xl text-[700] text-white">{{contact}}</div>
+            </div>
+            <div class=" bg-cyan-600 text-white flex flex-col py-4 px-3 justify-center items-center hover:bg-cyan-700 rounded">
+                <h1 class="text-3xl  text-[500] text-white">Total Subscribe</h1>
+                <div class="text-2xl text-[700] text-white">{{subscribe}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock sadminMain %}

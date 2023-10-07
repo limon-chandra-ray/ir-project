@@ -3,7 +3,8 @@ from .models import (
     Region,
     Topic,
     Podcast,
-    Interview
+    Interview,
+    UserContact
 )
 # Register your models here.
 class TopicAdmin(admin.ModelAdmin):
@@ -15,7 +16,7 @@ class PodcastAdmin(admin.ModelAdmin):
 
 class InterviewAdmin(admin.ModelAdmin):
     prepopulated_fields ={"slug":("name",),}
-
+admin.site.register(UserContact)
 admin.site.register(Region,RegionAdmin)
 admin.site.register(Topic,TopicAdmin)
 admin.site.register(Podcast,PodcastAdmin)

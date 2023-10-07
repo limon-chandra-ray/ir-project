@@ -1,12 +1,63 @@
 {% extends 'bcga/basic/main.html' %}
 {% block headerImage %}
-{% if page_info != '' %}
-<img class="lg:h-screen h-screen w-full" src="{{page_info.image.url}}" alt="">
-{% else %}
-<img class="lg:h-screen h-screen w-full" src="https://th.bing.com/th/id/OIP.bXeJ_pb9EdW1X7BBZE_OegHaHa?pid=ImgDet&w=600&h=600&rs=1" alt="">
-{% endif %}
+    {% if page_info.image != "" %}
+        <img class="lg:h-[72.6vh] h-[40vh] w-full" src="{{page_info.image.url}}" alt="">
+    {% else %}
+        <img class="lg:h-[72.6vh] h-[40vh] w-full" src="https://npr.brightspotcdn.com/dims4/default/679aa4a/2147483647/strip/true/crop/6000x4000+0+0/resize/880x587!/quality/90/?url=http:%2F%2Fnpr-brightspot.s3.amazonaws.com%2F05%2F3c%2Fd06511894002b1658dcc885b56cc%2Fmicrosoftteams-image.png" alt="">
+    {% endif %}
+
 {% endblock headerImage %}
+    {% block headerText %}
+        <h1 class="font-['Roboto'] lg:text-[44px] text-[24px] #fff font-[700px] uppercase">{{page_info.name}}</h1> 
+    {% endblock headerText %}
 {% block bcgaMain %}
 
-
+<div class="lg:mx-[248px] mx-0 lg:px-[32px] px-0 lg:py-[96px] py-[40px] flex justify-center">
+    <div class="flex lg:flex-row flex-col justify-between">
+        {% include "bcga/topic-sidebar.html" %}
+        <div class="lg:w-[745px] w-[100%] text-[rgba(26,26,26,.7)]">
+            {% for article in topic_articles %}
+                {% if forloop.counter|divisibleby:2 %}
+                    <div class="flex lg:flex-row flex-col-reverse justify-between lg:space-x-4 space-x-0 px-[17px] mb-[100px]">
+                        <div class="lg:w-[65%] w-[100%]">
+                            <div>
+                                <a href="{% url "bcga:article_detial" topic_article=article.slug %}" class="text-[20px] font-semibold text-[#3d9991]">{{article.title|truncatechars:40}}</a>
+                            </div>
+                            <div class="italic font-serif font-'Adobe Garamond Pro'">
+                                {{article.artice_content|truncatewords:50|safe}}
+                            </div>
+                        </div>
+                        <div class="lg:w-[35%] w-[100%] flex flex-col space-y-2">
+                            <img src="{{article.image.url}}" alt="">
+                            <h1 class="font-bold">By {{article.writer|capfirst }}</h1>
+                            <p class="italic font-serif font-'Adobe Garamond Pro'">{{article.created_at|date:"M d,Y"}}</p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="flex lg:flex-row flex-col justify-between lg:space-x-4 space-x-0 px-[17px] mb-[100px]">
+                        <div class="lg:w-[35%] w-[100%] flex flex-col space-y-2">
+                            <img src="{{article.image.url}}" alt="">
+                            <h1 class="font-bold">By {{article.writer|capfirst }}</h1>
+                            <p class="italic font-serif font-'Adobe Garamond Pro'">{{article.created_at|date:"M d,Y"}}</p>
+                        </div>
+                        <div class="lg:w-[65%] w-[100%]">
+                            <div>
+                                <a href="{% url "bcga:article_detial" topic_article=article.slug %}" class="text-[20px] font-semibold text-[#3d9991]">{{article.title|truncatechars:70}}</a>
+                            </div>
+                            <div class="italic font-serif font-'Adobe Garamond Pro'  ">
+                                {{article.artice_content|truncatewords:50|safe}}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock bcgaMain %}
+{% block bcgaScript %}
+<script>
+
+
+</script>
+{% endblock bcgaScript %}

@@ -1,0 +1,53 @@
+{% extends "super-admin/main.html" %}
+{% load static %}
+{% block sadminTitle %}
+Photo Gallery
+{% endblock sadminTitle %}
+{% block sadminMain %}
+<div class="bg-cyan-600">
+    <div class="text-center py-4 text-3xl text-white">All Photo</div>
+    <div class="flex justify-end mr-3 py-2">
+        <button
+            type="button"
+            class="py-3 px-2 bg-cyan-700 text-white"
+            id="photoAdd"
+            >
+            Add New Photo
+        </button>
+    </div>
+</div>
+<div class="px-2">
+    <div class="lg:mx-[100px] mx-0 lg:px-[32px] px-[17px] lg:pb-[80px] pb-[40px] lg:pt-[30px] pt-[40px] grid lg:grid-cols-3 grid-cols-1 gap-2">
+        {% for photo in photos %}
+        <img class="w-[450px] h-[500px] object-cover" src="{{photo.image.url}}" alt="">
+        {% endfor %}
+    </div>
+</div>
+{% include "super-admin/archive/add.html" %}
+{% endblock sadminMain %}
+{% block sadminScripts %}
+<script>
+    $("#photoAdd").on('click',()=>{
+        $("#photoAddModal").removeClass("hidden");
+    });
+   
+    $("#successCloseButton").on("click", ()=>{
+        $("#successModal").addClass("hidden");
+    });
+
+    var closeButton = document.querySelectorAll('#modalClose');
+    closeButton.forEach((c_button)=>{
+        c_button.addEventListener('click',()=>{
+            $("#regionEditModal").addClass("hidden");
+        })
+   })
+   
+
+
+    
+    $("#upload_image").on('change',()=>{
+        var topic_img = document.getElementById('upload_image');
+        $("#upload_image_Show").attr('src',URL.createObjectURL(topic_img.files[0]))
+    })
+</script>
+{% endblock sadminScripts %}

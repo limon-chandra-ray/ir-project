@@ -18,3 +18,4 @@ def podcast_get(request):
     podcast = Podcast.objects.all().values("name",'slug')
 
     return JsonResponse({'status':'success','data':list(podcast)},safe=False)
+

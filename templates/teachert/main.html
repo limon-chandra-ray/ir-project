@@ -1,0 +1,45 @@
+<html lang="en">
+    {% load static %}
+<head>
+    {% include 'bcga/basic/head.html' %}
+    
+    
+    <title>Home</title>
+    {% block teacherStyle %}{% endblock teacherStyle %}
+</head>
+<body>
+    <div class="relative flex min-h-screen">
+        <div class="bg-cyan-600 text-cyan-100 w-60 space-y-2 px-2">
+            <a href="#" class="flex justify-center py-4">Project</a>
+            <nav>
+                {% url "studentTeam:home" as studentHome %}
+                <a href="{{studentHome}}"  class="flex items-center space-x-4 px-2 py-2 hover:bg-cyan-700 {% if request.path == studentHome %}bg-cyan-700{% endif %}">Dashboard</a>
+                {% url "studentTeam:article_view" as articleList %}
+                <a href="{{articleList}}" class="flex items-center space-x-4 px-2 py-2 hover:bg-cyan-700 {% if request.path == articleList %}bg-cyan-700{% endif %}">All Article</a>
+                {% url "studentTeam:event_list" as eventList %}
+                <a href="{{eventList}}" class="flex items-center space-x-4 px-2 py-2 hover:bg-cyan-700 {% if request.path == eventList %}bg-cyan-700{% endif %}">All Event</a>
+            </nav>
+
+        </div>
+        <div class="flex-1">
+            <div class="bg-white shadow px-2 py-4 flex justify-between">
+                <div>Header</div>
+                <div class="mr-3">
+                    {% if user.is_authenticated %}
+                    <a href="#" class="bg-white px-4 py-3">{{user.user_name}}</a>
+                    <a href="{% url "teacherTeam:teacher_logout" %}" class="px-4 py-2 rounded hover:bg-red-600 hover:text-white ">Log-out</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div>
+                {% block teacherMain %}
+                {% endblock teacherMain %}
+            </div>
+        </div>
+    </div>
+    
+    {% include 'bcga/basic/footer.html' %}
+    {% include 'bcga/basic/script.html' %}
+    {% block teacherScripts %}{% endblock teacherScripts %}
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% extends 'bcga/basic/main.html' %}
+{% block headerImage %}
+{% if event.image.url %}
+    <img class="lg:h-[72.6vh] h-[40vh] w-full" src="{{event.image.url}}" alt="">
+{% else %}
+    <img class="lg:h-[72.6vh] h-[40vh] w-full" src="https://th.bing.com/th/id/R.d34cef3b782014355e7b30c79139dce9?rik=GSs49M46k7cVhg&riu=http%3a%2f%2fwww.earlychildhoodeducationzone.com%2fwp-content%2fuploads%2f2015%2f01%2fedu-conferences-2015.jpg&ehk=s5AfNlBll1d3Aeb3ayWaF5z2j%2bK2Sym%2bSM12g3E9TK0%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="">
+{% endif %}
+{% endblock headerImage %}
+{% block bcgaMain %}
+<div class="lg:mx-[210px] mx-0 lg:px-[32px] px-0 lg:py-[96px] py-[40px] flex space-y-4 flex-col justify-center">
+    <div class="grid lg:grid-cols-3 grid-cols-1 gap-8 text-[18px] lg:px-0 px-[17px]">
+        <div class="flex flex-col space-y-7">
+            <h1 class="text-[28px] font-['adobe-garamond-pro'] text-[rgba(26,26,26,.9)]">{{event.title}}</h1>
+            <div>
+                <h1 class="text-[18px] font-['Roboto'] text-[rgba(26,26,26,.7)]">{{event.event_date|date:"l m d,Y"}}</h1>
+                <h1 class="text-[18px] font-['Roboto'] text-[rgba(26,26,26,.7)]">{{event.event_start|date:'h:i A'}}  {{event.event_end|date:"h:i A"}}</h1>
+            </div>
+        </div>
+        <div class="text-justify leading-[1.6rem] text-[rgba(26,26,26,.7)] font-[400px] font-['adobe-garamond-pro']">
+            {{event.event_content|safe}}
+            <div class="my-[18px] p-[17px] flex justify-center items-center">
+                <button id="eventParticipate"  class="text-white uppercase bg-[#36b3a8] py-[14px] px-6 hover:opacity-90 rounded-[32px] font-semibold">Registration</button>
+            </div>
+            
+        </div>
+        <div class="text-justify leading-[1.6rem] text-[rgba(26,26,26,.7)] font-[400px] italic font-['adobe-garamond-pro']">
+            <h1 class="font-semibold">{{event.cheaf_guest}}</h1>
+            <div>
+                {{event.guest_details_info|safe}}
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% include "bcga/basic/event-registration.html" %}
+{% endblock bcgaMain %}
+{% block bcgaScript %}
+<script>
+    $("#eventParticipate").on('click',()=>{
+        $("#participator").removeClass('hidden')
+    })
+    var closeButton = document.querySelectorAll('#modalClose');
+    closeButton.forEach((c_button)=>{
+        c_button.addEventListener('click',()=>{
+            $("#participator").addClass("hidden");
+        })
+   })
+</script>
+{% endblock bcgaScript %}

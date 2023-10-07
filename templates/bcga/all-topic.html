@@ -1,0 +1,79 @@
+{% extends 'bcga/basic/main.html' %}
+{% block headerImage %}
+    {% if page_info.image != "" %}
+        <img class="lg:h-[72.6vh] h-[40vh] w-full" src="{{page_info.image.url}}" alt="">
+    {% else %}
+        <img class="lg:h-[72.6vh] h-[40vh] w-full" src="https://npr.brightspotcdn.com/dims4/default/679aa4a/2147483647/strip/true/crop/6000x4000+0+0/resize/880x587!/quality/90/?url=http:%2F%2Fnpr-brightspot.s3.amazonaws.com%2F05%2F3c%2Fd06511894002b1658dcc885b56cc%2Fmicrosoftteams-image.png" alt="">
+    {% endif %}
+
+{% endblock headerImage %}
+    {% block headerText %}
+        <h1 class="font-['Roboto'] lg:text-[44px] text-[24px] #fff font-[700px] uppercase">{{page_info.name}}</h1> 
+    {% endblock headerText %}
+{% block bcgaMain %}
+
+<div class="lg:mx-[210px] mx-0 lg:px-[32px] px-0 lg:py-[96px] py-[40px] flex flex-col justify-center">
+    {% for article in topic_articles %}
+        <div class="w-[100%] lg:px-[150px] px-[17px] p-[17px] flex flex-col space-y-4 mb-[50px] font-['adobe-garamond-pro'] text-[rgba(26,26,26,.7)]">
+            <a href="#" class="text-[20px] font-['Roboto'] text-[rgba(26,26,26,.4)]">{{article.created_at|date:"M d, Y"}}</a>
+            <a href="{% url "bcga:article_detial" article.slug %}" class="text-[21px] text-black">{{article.title|capfirst }}</a>
+            <div class="text-[20px] font-['Roboto'] text-[rgba(26,26,26,.4)]">
+                <a href="{% url "bcga:topic" article.topic.slug %}">{{article.topic.name}}</a>, 
+                {% comment %} <a href="#">National Security</a> {% endcomment %}
+            </div>
+            <div class="text-[18px]">{{article.artice_content|truncatewords:70|safe}}</div>
+            <a class="text-blue-400 text-[18px]" href="{% url "bcga:article_detial" article.slug %}">Read More <span class="arrow">&rightarrow;</span></a>
+            <div class="text-[20px] font-['Roboto'] text-[rgba(26,26,26,.4)]">Tagged: <a href="#">Sanctions</a>, <a href="#"> Rapprochement</a></div>
+            <div class="flex space-x-4 text-[20px] font-['Roboto'] text-[rgba(26,26,26,.4)]">
+                <button type="button" id="topic_comment" data-article="{{article.id}}">Comment</button>
+                <div>Like</div>
+                <div>Share</div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% include "bcga/basic/comment-modal.html" %}
+{% endblock bcgaMain %}
+{% block bcgaScript %}
+<script>
+    var closeButton = document.querySelectorAll('#modalClose');
+    closeButton.forEach((c_button)=>{
+        c_button.addEventListener('click',()=>{
+            $("#articleComment").addClass("hidden");
+        })
+   })
+
+    var all_comment_button = document.querySelectorAll("#topic_comment");
+    all_comment_button.forEach((comment)=>{
+        comment.addEventListener('click',()=>{
+            var article_id = comment.getAttribute('data-article')
+            $("#articleComment").removeClass('hidden')
+            $("#article_id").val(article_id)
+        })
+    });
+
+    $("#comment_save").on('click',()=>{
+        var user_name = $("#user_name").val();
+        var comment_text = $("#comment_text").val();
+        var article_id =  $("#article_id").val()
+        $.ajax({
+            type:"POST",
+            url:"{% url 'bcga:article_comment_save' %}",
+            data:{
+                user_name : user_name,
+                comment_text :comment_text,
+                article_id :article_id,
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+            },
+            success:(res)=>{
+                if(res['status'] == 'Success'){
+                    location.reload()
+                }else{
+                    location.reload()
+                }
+            }
+        })
+        
+    })
+</script>
+{% endblock bcgaScript %}

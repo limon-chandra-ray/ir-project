@@ -1,0 +1,56 @@
+{% extends "studentt/main.html" %}
+{% block studentStyle %}
+<style>
+    .ck-editor__editable_inline {
+        min-height: 400px;
+    }
+    </style>
+
+{% endblock studentStyle %}
+{% block studentMain %}
+<div class="flex justify-center">
+    <div class="w-3/4">
+        <form action="{% url "studentTeam:create_article_save" %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="my-2">
+                <input type="text" name="title" class="w-full p-2 text-[20px] border-2 border-gray-600 rounded" placeholder="Article Title">
+            </div>
+            <div class="my-2 flex">
+                <div class="w-1/2">
+                    <select class="w-3/4 border-2 border-gray-600 p-2 rounded text-[20px]" name="topic_id" id="">
+                        <option>select Topic</option>
+                        {% for topic in topics  %}
+                        <option value="{{topic.id}}">{{topic.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="w-1/2">
+                    <input type="file" name="image" class="w-full border-2 border-gray-600 p-2 rounded">
+                </div>
+               
+            </div>
+            <div>
+                <div class="py-2 text-[20px]">Article Write</div>
+                <textarea id="editor" name="article_content" class="w-64" rows="30">
+                </textarea>
+            </div>
+            
+            <div class="py-2 w-full flex justify-center">
+                <button type="submit" class="border-2 border-gray-600
+                 bg-green-600 
+                 rounded
+                 text-[20px] px-4 py-2 w-1/3 text-white
+                 hover:bg-green-700 
+                 ">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+        
+{% endblock studentMain %}
+{% block studentScripts %}
+    <script>
+        ckeditorFunction("editor")
+    </script>
+{% endblock studentScripts %}
