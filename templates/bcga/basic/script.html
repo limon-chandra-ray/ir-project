@@ -5,7 +5,11 @@
 <script>
 
     getHeaderData("{% url 'ir_project:topic_get' %}","#topicGet",'topic')
+    getHeaderData("{% url 'ir_project:topic_get' %}","#mobileTopic",'topic')
+    
     getHeaderData("{% url 'ir_project:region_get' %}","#regionGet",'region-topic')
+    getHeaderData("{% url 'ir_project:region_get' %}","#mobileRegion",'region-topic')
+    
     getHeaderData("{% url 'ir_project:podcast_get' %}","#podcastGet",'podcast')
     getHeaderData("{% url 'ir_project:interview_get' %}","#interviewGet",'interview')
 
