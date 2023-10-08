@@ -10,5 +10,28 @@
 <h1 class="font-['Roboto'] lg:text-[44px] text-[24px] #fff font-[700px] uppercase">{{article.title}}</h1> 
 {% endblock headerText %}
 {% block bcgaMain %}
-{{article.artice_content|safe}}
+<div class="lg:mx-[210px] mx-0 lg:px-[32px] px-[17px] lg:py-[96px] py-[40px] flex space-y-4 flex-col justify-center">
+    <div class="font-['adobe-garamond-pro'] text-[18px] font-[400px] text-[rgba(26,26,26,.7)] leading-[1.6rem]">
+        {{article.artice_content|safe}}
+    </div>
+    <div class="flex space-x-4 font-['adobe-garamond-pro'] text-[18px] font-[600px] text-[rgba(26,26,26,.7)]">
+        <p><i class="fas fa-heart"></i> 5 Like</p>
+        <p><i class="fas fa-share-alt"></i> Share</p>
+    </div>
+    <div>
+        <form action="#">
+            <div class="py-2">
+                <label for="comment" class="text-[rgba(26,26,26,.7)] text-[20px] font-semibold font-['adobe-garamond-pro']">Comments(0)</label>
+                <textarea name="comment" id="comment" rows="5" class="border-2 border-solid border-[#a9a9a9] bg-[#fafafa] text-[#000] w-[100%]"></textarea>
+            </div>
+            <div class="py-4 flex justify-end">
+                <button type="submit" class="text-white uppercase bg-black py-[14px] px-6 hover:opacity-90 font-semibold">post comment</button>
+            </div>
+        </form>
+    </div>
+    <div>
+        <p><i class="fas fa-user text-[24px]"></i> <span class="font-['adobe-garamond-pro'] text-[24px] font-semibold text-[rgba(26,26,26,.7)]">samrat biswas</span> (date time)</p>
+        <p class="ml-6 font-['adobe-garamond-pro'] text-[20px] text-[rgba(26,26,26,.7)]">it's ok</p>
+    </div>
+</div>
 {% endblock bcgaMain %}
