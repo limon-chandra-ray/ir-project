@@ -3,19 +3,19 @@
     {% if page_info != '' %}
         <img class="lg:h-[72.6vh] h-[40vh] w-full" src="{{page_info.image.url}}" alt="">
     {% else %}
-        <img class="lg:h-[72.6vh] h-[40vh] w-full" src="https://th.bing.com/th/id/OIP.bXeJ_pb9EdW1X7BBZE_OegHaHa?pid=ImgDet&w=600&h=600&rs=1" alt="">
+        <img id="img" class="lg:h-[72.6vh] h-[40vh] w-full" src="https://th.bing.com/th/id/OIP.bXeJ_pb9EdW1X7BBZE_OegHaHa?pid=ImgDet&w=600&h=600&rs=1" alt="">
     {% endif %}
 {% endblock headerImage %}
 
 {% block headerText %}
 <h1 class="italic font-serif font-'Adobe Garamond Pro' lg:text-[24px] text-[16px]">Simplifying Matters</h1>
-<h1 class="text-[36px] font-semibold">SECURITY DISTILLERY</h1>
+<h1 class="lg:text-[36px] text-[24px] font-semibold">SECURITY DISTILLERY</h1>
 <div class="flex flex-col justify-center items-center">
     <h1 class="italic font-serif font-'Adobe Garamond Pro' lg:text-[24px] text-[16px] text-center">The Security Distillery is an initiative from students for students.</h1>
     <h1 class="italic font-serif font-'Adobe Garamond Pro' lg:text-[24px] text-[16px] text-center">We aim to turn complex security issues into simple, quality, accessible information for</h1>
     <h1 class="italic font-serif font-'Adobe Garamond Pro' lg:text-[24px] text-[16px] text-center">students and researchers.</h1>
 </div>
-<a href="#" class="text-white uppercase bg-[#1989ae] py-2 px-6 rounded-2xl hover:bg-[#1191bb] font-semibold">Learn More</a>
+<a href="{% url 'bcga:about_us' %}" class="text-white uppercase bg-[#1989ae] py-2 px-6 rounded-2xl hover:bg-[#1191bb] font-semibold">Learn More</a>
 {% endblock headerText %}
 
 
@@ -29,7 +29,7 @@
             <div class="flex items-center justify-center w-[100%] px-[17px]">
                 <div class="flex justify-between space-x-2 text-gray-600 w-[100%]">
                     <input type="text" class="border-2 border-gray-300 bg-white h-[50px] px-5 pr-10 w-[100%] text-sm focus:outline-none" placeholder="Search...">
-                    <a href="#" class="text-white uppercase bg-blue-500 py-3 px-5 hover:opacity-90 font-semibold">SUBSCRIBE</a>
+                    <a href="#" class="text-white uppercase bg-blue-500 py-3 px-5 hover:opacity-90 font-semibold">Search</a>
                 </div>
             </div>                    
         </div>
@@ -166,7 +166,7 @@
         </div>
     </section>
     <div class="my-[50px] border-b border-solid border-[#ddd]"></div>
-    <div class="px-[17px]">
+    <div class="px-[17px] mb-12">
         <div class="flex flex-col justify-center items-center space-y-4">
             <div>
                 <h1 class="text-[24px] font-semibold">FOLLOW US ON SOCIAL MEDIA</h1>
@@ -180,5 +180,21 @@
         </div>
     </div>
 </div>
-
+<script>
+    const main = document.getElementById("main");
+    const img = document.getElementById("img");
+    var currentURL = window.location.href;
+    var urlSegments = currentURL.split('/');
+    var lastSegment = urlSegments[urlSegments.length - 1];
+    if(lastSegment == '' || '#home'){
+        main.classList.remove("lg:h-[72.6vh]");
+        main.classList.remove("h-[40vh]");
+        img.classList.remove("lg:h-[72.6vh]");
+        img.classList.remove("h-[40vh]");
+        main.classList.add("lg:h-[100vh]");
+        main.classList.add("h-[80vh]");
+        img.classList.add("lg:h-[100vh]");
+        img.classList.add("h-[80vh]");
+    }
+</script>
 {% endblock bcgaMain %}

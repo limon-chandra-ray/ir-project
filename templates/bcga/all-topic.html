@@ -8,7 +8,7 @@
 
 {% endblock headerImage %}
     {% block headerText %}
-        <h1 class="font-['Roboto'] lg:text-[44px] text-[24px] #fff font-[700px] uppercase">{{page_info.name}}</h1> 
+        <h1 class="font-['Roboto'] lg:text-[44px] text-[18px] #fff font-[700px] uppercase">{{page_info.name}}</h1> 
     {% endblock headerText %}
 {% block bcgaMain %}
 
@@ -23,7 +23,6 @@
             </div>
             <div class="text-[18px]">{{article.artice_content|truncatewords:70|safe}}</div>
             <a class="text-blue-400 text-[18px]" href="{% url "bcga:article_detial" article.slug %}">Read More <span class="arrow">&rightarrow;</span></a>
-            <div class="text-[20px] font-['Roboto'] text-[rgba(26,26,26,.4)]">Tagged: <a href="#">Sanctions</a>, <a href="#"> Rapprochement</a></div>
             <div class="flex space-x-4 text-[20px] font-['Roboto'] text-[rgba(26,26,26,.4)]">
                 <button type="button" id="topic_comment" data-article="{{article.id}}">Comment</button>
                 <div>Like</div>
