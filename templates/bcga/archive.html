@@ -9,10 +9,9 @@
 
 <h1 class="lg:text-[56px] text-[44px] pt-8 font-bold text-[#2e333a] text-center">Photo Gallery</h1>
 <div class="lg:mx-[100px] mx-0 lg:px-[32px] px-[17px] lg:pb-[80px] pb-[40px] lg:pt-[30px] pt-[40px] grid lg:grid-cols-3 grid-cols-1 gap-2">
-    <img class="w-[450px] h-[500px] object-cover" src="https://scontent.fjsr8-1.fna.fbcdn.net/v/t1.6435-9/86730325_1379814378884700_318484271813623808_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeErUiR4Xmz9VXXo9rMQAWtWqBnvajEV3MuoGe9qMRXcy6meYNmSAiH0upnXFxNmOG_QzFr_W8G9bFP8KqLwJvgC&_nc_ohc=VbwkUWJ4BOsAX8emDH2&_nc_ht=scontent.fjsr8-1.fna&oh=00_AfAEubjkJj32Tm8J4_qrr2P4rbDHsMuHGPTK7KzViC0byg&oe=6547EB5C" alt="">
-    <img class="w-[450px] h-[500px] object-cover" src="https://scontent.fjsr8-1.fna.fbcdn.net/v/t1.6435-9/86875453_1379814098884728_8554288034185478144_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeHDgCvdNNa3meZUzbesH_tgIqvIYS-_jEEiq8hhL7-MQSPdS_d813bmugmt5bhmZdEEskjwT37Mzypmwd4j-f7L&_nc_ohc=Yjj-ZckHPCkAX81a3j_&_nc_ht=scontent.fjsr8-1.fna&oh=00_AfB7aTCN5sRWywsWj0LED-laSbXIKfbhMFOmoU_SjdBWew&oe=6547FC7D" alt="">
-    <img class="w-[450px] h-[500px] object-cover" src="https://scontent.fjsr8-1.fna.fbcdn.net/v/t1.6435-9/86875453_1379814098884728_8554288034185478144_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeHDgCvdNNa3meZUzbesH_tgIqvIYS-_jEEiq8hhL7-MQSPdS_d813bmugmt5bhmZdEEskjwT37Mzypmwd4j-f7L&_nc_ohc=Yjj-ZckHPCkAX81a3j_&_nc_ht=scontent.fjsr8-1.fna&oh=00_AfB7aTCN5sRWywsWj0LED-laSbXIKfbhMFOmoU_SjdBWew&oe=6547FC7D" alt="">
-    <img class="w-[450px] h-[500px] object-cover" src="https://scontent.fjsr8-1.fna.fbcdn.net/v/t1.6435-9/86874659_1379806288885509_6159897303432822784_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeGq0Wv9T9qVi2w9yKutNjfTJSx3vONY-TwlLHe841j5PGrLcfItTbpFuGmpGzBqE1UOjgsJaB0Ak7TET-pZAVGI&_nc_ohc=HLP3CqDUU1EAX8EjN0X&_nc_ht=scontent.fjsr8-1.fna&oh=00_AfCTFIvMG_Mx0eAIweXHL3quAgxUsTyzv_CAvMhSfVqX3A&oe=6547F6AE" alt="">
+    {% for gallery in gallery_photos %}
+    <img class="w-[450px] h-[500px] object-cover" src="{{gallery.image.url}}" alt="">
+    {% endfor %}
 </div>
     
 

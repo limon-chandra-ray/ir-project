@@ -54,7 +54,6 @@ def topic(request,topic):
 def article_detial(request,topic_article):
     article = TopicArticle.objects.get(slug = topic_article)
     comment = article.comment_set.all()
-    print(comment)
     context ={
         'article':article,
         'comments':comment

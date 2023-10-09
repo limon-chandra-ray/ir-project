@@ -19,7 +19,11 @@ Photo Gallery
 <div class="px-2">
     <div class="lg:mx-[100px] mx-0 lg:px-[32px] px-[17px] lg:pb-[80px] pb-[40px] lg:pt-[30px] pt-[40px] grid lg:grid-cols-3 grid-cols-1 gap-2">
         {% for photo in photos %}
-        <img class="w-[450px] h-[500px] object-cover" src="{{photo.image.url}}" alt="">
+        <div class="relative group">
+            <img class="w-[450px] h-[500px] object-cover" src="{{photo.image.url}}" alt="">
+            <a href="{% url "sadmin:photo_delete" photo.id %}" class="hover:transition duration-150 ease-in-out opacity-0 rounded-md absolute top-[40%] left-[40%] group-hover:opacity-100 px-6 py-4 bg-cyan-600">Delete</a>
+        </div>
+        
         {% endfor %}
     </div>
 </div>

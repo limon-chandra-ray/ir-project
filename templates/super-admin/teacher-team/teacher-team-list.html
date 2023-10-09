@@ -23,6 +23,7 @@ teacher team list
     </div>
 </div>
 {% include "super-admin/teacher-team/edit.html" %}
+{% include "super-admin/teacher-team/change-password.html" %}
 {% endblock sadminMain %}
 {% block sadminScripts %}
 <script>
@@ -73,6 +74,14 @@ teacher team list
       var progile_image = document.getElementById('teacher_profile_image');
       $("#teacherProfileImage").attr('src',URL.createObjectURL(progile_image.files[0]))
     })
-  
+  // password change
+  var teacher_password_change_buttons = document.querySelectorAll("#teacherPasswordChange");
+  teacher_password_change_buttons.forEach((spc_button)=>{
+    spc_button.addEventListener('click',()=>{
+      var teacher_id = spc_button.getAttribute('data-teacher');
+      $("#teacherProfilePasswordModal").removeClass('hidden');
+      $("#passwordeditteacher").val(teacher_id)
+    })
+  })
 </script>
 {% endblock sadminScripts %}

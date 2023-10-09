@@ -23,6 +23,7 @@ student team list
     </div>
 </div>
 {% include "super-admin/student-team/edit.html" %}
+{% include "super-admin/student-team/change-password.html" %}
 {% endblock sadminMain %}
 {% block sadminScripts %}
 <script>
@@ -30,6 +31,7 @@ student team list
     closeButton.forEach((c_button)=>{
         c_button.addEventListener('click',()=>{
             $("#studentProfileEditModal").addClass("hidden");
+            $("#studentProfilePasswordModal").addClass('hidden')
         })
   })
   var profile_update_buttons = document.querySelectorAll("#studentProfileUpdate")
@@ -75,6 +77,15 @@ student team list
     var progile_image = document.getElementById('edit_profile_image');
     $("#studentProfileImage").attr('src',URL.createObjectURL(progile_image.files[0]))
   })
+  // password change
+    var student_password_change_buttons = document.querySelectorAll("#studentPasswordChange");
+    student_password_change_buttons.forEach((spc_button)=>{
+      spc_button.addEventListener('click',()=>{
+        var student_id = spc_button.getAttribute('data-student');
+        $("#studentProfilePasswordModal").removeClass('hidden');
+        $("#passwordeditstudent").val(student_id)
+      })
+    })
 
 </script>
 {% endblock sadminScripts %}

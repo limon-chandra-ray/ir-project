@@ -12,12 +12,11 @@
         <div class="bg-cyan-600 text-cyan-100 w-60 space-y-2 px-2">
             <a href="#" class="flex justify-center py-4">Project</a>
             <nav>
-                {% url "studentTeam:home" as studentHome %}
+                {% url "teacherTeam:home" as studentHome %}
                 <a href="{{studentHome}}"  class="flex items-center space-x-4 px-2 py-2 hover:bg-cyan-700 {% if request.path == studentHome %}bg-cyan-700{% endif %}">Dashboard</a>
-                {% url "studentTeam:article_view" as articleList %}
+                {% url "teacherTeam:article_show" as articleList %}
                 <a href="{{articleList}}" class="flex items-center space-x-4 px-2 py-2 hover:bg-cyan-700 {% if request.path == articleList %}bg-cyan-700{% endif %}">All Article</a>
-                {% url "studentTeam:event_list" as eventList %}
-                <a href="{{eventList}}" class="flex items-center space-x-4 px-2 py-2 hover:bg-cyan-700 {% if request.path == eventList %}bg-cyan-700{% endif %}">All Event</a>
+                
             </nav>
 
         </div>

@@ -26,6 +26,7 @@ urlpatterns = [
     path('student-get',views.student_get,name='student_get'),
     path('student-profile-edit',views.student_profile_edit,name='student_profile_edit'),
     path('student-profile-delete-<int:user_id>',views.student_profile_delete,name='student_profile_delete'),
+    path('student-password-change',views.student_password_change,name='student_password_change'),
     # end student team
     # start teacher team
     path('teacher-team-list',views.teacher_team_list,name='teacher_team_list'),
@@ -33,10 +34,12 @@ urlpatterns = [
     path('teacher-get',views.teacher_get,name='teacher_get'),
     path('teacher-team-edit',views.teacher_team_edit,name='teacher_team_edit'),
     path('teacher-profile-delete-<int:user_id>',views.teacher_profile_delete,name='teacher_profile_delete'),
+    path('teacher-profile-password-change',views.teacher_password_change,name='teacher_password_change'),
     # end teacher team
     path('contact-list',views.user_contact_list,name='user_contact_list'),
     path('subscribe-list',views.user_subscribe_list,name='user_subscribe_list'),
     path('gallery-photo',views.gallery_photo,name='gallery_photo'),
-    path('gallery-photo-save',views.gallery_photo_save,name='gallery_photo_save')
+    path('gallery-photo-save',views.gallery_photo_save,name='gallery_photo_save'),
+    path('photo-delete-<int:image_id>',views.photo_delete,name='photo_delete')
 ]
 

@@ -15,23 +15,59 @@
         {{article.artice_content|safe}}
     </div>
     <div class="flex space-x-4 font-['adobe-garamond-pro'] text-[18px] font-[600px] text-[rgba(26,26,26,.7)]">
+        <button type="button" id="topic_comment" data-article="{{article.id}}">Comment</button>
         <p><i class="fas fa-heart"></i> 5 Like</p>
         <p><i class="fas fa-share-alt"></i> Share</p>
     </div>
+    {% for comment in comments %}
     <div>
-        <form action="#">
-            <div class="py-2">
-                <label for="comment" class="text-[rgba(26,26,26,.7)] text-[20px] font-semibold font-['adobe-garamond-pro']">Comments(0)</label>
-                <textarea name="comment" id="comment" rows="5" class="border-2 border-solid border-[#a9a9a9] bg-[#fafafa] text-[#000] w-[100%]"></textarea>
-            </div>
-            <div class="py-4 flex justify-end">
-                <button type="submit" class="text-white uppercase bg-black py-[14px] px-6 hover:opacity-90 font-semibold">post comment</button>
-            </div>
-        </form>
+        <p><i class="fas fa-user text-[20px]"></i> <span class="font-['adobe-garamond-pro'] text-[20px] font-semibold text-[rgba(26,26,26,.7)]">{{comment.user_name}}</span> ({{comment.created_at|date:"M d, Y"}})</p>
+        <p class="ml-6 font-['adobe-garamond-pro'] text-[20px] text-[rgba(26,26,26,.7)]">{{comment.comment_text}}</p>
     </div>
-    <div>
-        <p><i class="fas fa-user text-[24px]"></i> <span class="font-['adobe-garamond-pro'] text-[24px] font-semibold text-[rgba(26,26,26,.7)]">samrat biswas</span> (date time)</p>
-        <p class="ml-6 font-['adobe-garamond-pro'] text-[20px] text-[rgba(26,26,26,.7)]">it's ok</p>
-    </div>
+    {% endfor %}
 </div>
+{% include "bcga/basic/comment-modal.html" %}
 {% endblock bcgaMain %}
+{% block bcgaScript %}
+<script>
+    var closeButton = document.querySelectorAll('#modalClose');
+    closeButton.forEach((c_button)=>{
+        c_button.addEventListener('click',()=>{
+            $("#articleComment").addClass("hidden");
+        })
+   })
+
+    var all_comment_button = document.querySelectorAll("#topic_comment");
+    all_comment_button.forEach((comment)=>{
+        comment.addEventListener('click',()=>{
+            var article_id = comment.getAttribute('data-article')
+            $("#articleComment").removeClass('hidden')
+            $("#article_id").val(article_id)
+        })
+    });
+
+    $("#comment_save").on('click',()=>{
+        var user_name = $("#user_name").val();
+        var comment_text = $("#comment_text").val();
+        var article_id =  $("#article_id").val()
+        $.ajax({
+            type:"POST",
+            url:"{% url 'bcga:article_comment_save' %}",
+            data:{
+                user_name : user_name,
+                comment_text :comment_text,
+                article_id :article_id,
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+            },
+            success:(res)=>{
+                if(res['status'] == 'Success'){
+                    location.reload()
+                }else{
+                    location.reload()
+                }
+            }
+        })
+        
+    })
+</script>
+{% endblock bcgaScript %}
