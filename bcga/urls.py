@@ -17,7 +17,7 @@ urlpatterns = [
     path('new-events',views.new_event,name='new_event'),
     path('event-<slug:event_slug>',views.event_detail,name='event_detail'),
     path('participate-save',views.event_participator_save,name='event_participator_save'),
-    path('post-event',views.past_event,name='past_event'),
+    path('past-event',views.past_event,name='past_event'),
     path('podcast-<slug:podcast>',views.podcast,name='podcast'),
     path('articel-comment',views.article_comment_save,name='article_comment_save')
     

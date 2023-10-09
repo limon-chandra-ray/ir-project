@@ -141,7 +141,7 @@ def event_participator_save(request):
         return redirect('bcga:event_detail',event_slug=event.slug)
 
 def past_event(request):
-    past_event = Event.objects.filter(created_at__lt = datetime.today())
+    past_event = Event.objects.filter(event_date__lt = datetime.today())
     context = {
         'past_events':past_event
     }
