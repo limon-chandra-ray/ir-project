@@ -141,7 +141,11 @@ def event_participator_save(request):
         return redirect('bcga:event_detail',event_slug=event.slug)
 
 def past_event(request):
-    return render(request,'bcga/past-event.html')
+    past_event = Event.objects.filter(created_at__lt = datetime.today())
+    context = {
+        'past_events':past_event
+    }
+    return render(request,'bcga/past-event.html',context)
 
 def podcast(request,podcast):
     return render(request,'bcga/podcast.html')

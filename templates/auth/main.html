@@ -2,9 +2,8 @@
     {% load static %}
 <head>
     {% include 'bcga/basic/head.html' %}
-    
-    
-    <title>Login Page</title>
+    <title>{% block authTitle %}{% endblock authTitle %}</title>
+    {% block authStyle %}{% endblock authStyle %}
 </head>
 <body>
    <main>

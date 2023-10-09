@@ -64,7 +64,7 @@ class Event(models.Model):
     event_start = models.TimeField()
     event_end = models.TimeField()
     slug = models.SlugField(unique=True,max_length=1000)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def save(self,*args, **kwargs):

@@ -7,6 +7,19 @@
     
 </head>
 <body id="home">
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}
+                {% include "notifications/success.html" %}
+            {% endif %}
+            {% if message.tags == 'warning' %}
+                    {% include "notifications/warning.html" %}
+            {% endif %}
+                 {% if message.tags == 'error' %}
+                    {% include "notifications/error.html" %}
+                 {% endif %}
+        {% endfor %}
+    {% endif %}
     <header>
         <div id="main" class="lg:h-[72.6vh] h-[40vh] w-full">
             <div class="absolute  w-full">

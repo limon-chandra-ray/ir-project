@@ -7,32 +7,23 @@
 {% endblock headerText %}
 {% block bcgaMain %}
 <div class="lg:mx-[210px] mx-0 lg:px-[32px] px-0 lg:py-[96px] py-[40px] flex space-y-4 flex-col justify-center">
-    <div class="w-[100%] flex lg:flex-row flex-col justify-between space-x-4">
-        <div class="lg:w-[35%] w-[100%] p-[17px] lg:p-0">
-            <a href="event_details.php"><img class="w-full" src="https://images.squarespace-cdn.com/content/v1/5d94a2dd7046bc4760c90517/1681243043489-HV0H94O81OAIBP4T7CIL/Humanitarian+perspectives+-+event+-+website.png?format=500w" alt=""></a>
-        </div>
-        <div class="lg:w-[65%] w-[100%] p-[17px] lg:p-0 flex flex-col space-y-4 font-['adobe-garamond-pro'] text-[rgba(26,26,26,.7)]">
-            <a href="event_details.php" class="text-[28px] text-[rgba(26,26,26,.9)]">Humanitarian Perspectives in High-Risk and Peacekeeping Environment - A Lecture with Mrs. Alessandra Morelli</a>
-            <div>
-                <h1 class="text-[20px] font-['Roboto'] text-[rgba(26,26,26,.4)]">Thursday, April 20, 2023</h1>
-                <h1 class="text-[20px] font-['Roboto'] text-[rgba(26,26,26,.4)]">6:00 PM  9:00 PM</h1>
+    {% for event in past_events %}
+        <div class="w-[100%] flex lg:flex-row flex-col justify-between space-x-4">
+            <div class="lg:w-[35%] w-[100%] p-[17px] lg:p-0">
+                <a href="event_details.php"><img class="w-full" src="{{event.image.url}}" alt=""></a>
             </div>
-            <p class="text-[18px] italic font-['adobe-garamond-pro']">The Security Distillery is excited to host the lecture with Mrs. Alessandra Morelli, where we will together engage in topics such as crisis management in hostile environments, the nexus between humanitarian aid and military contexts, counterterrorism and migration.</p>
-        </div>
-    </div>
-    <div class="w-[100%] flex lg:flex-row flex-col justify-between space-x-4">
-        <div class="lg:w-[35%] w-[100%] p-[17px] lg:p-0">
-            <a href="event_details.php"><img class="w-full" src="https://images.squarespace-cdn.com/content/v1/5d94a2dd7046bc4760c90517/1681243043489-HV0H94O81OAIBP4T7CIL/Humanitarian+perspectives+-+event+-+website.png?format=500w" alt=""></a>
-        </div>
-        <div class="lg:w-[65%] w-[100%] p-[17px] lg:p-0 flex flex-col space-y-4 font-['adobe-garamond-pro'] text-[rgba(26,26,26,.7)]">
-            <a href="event_details.php" class="text-[28px] text-[rgba(26,26,26,.9)]">Humanitarian Perspectives in High-Risk and Peacekeeping Environment - A Lecture with Mrs. Alessandra Morelli</a>
-            <div>
-                <h1 class="text-[20px] font-['Roboto'] text-[rgba(26,26,26,.4)]">Thursday, April 20, 2023</h1>
-                <h1 class="text-[20px] font-['Roboto'] text-[rgba(26,26,26,.4)]">6:00 PM  9:00 PM</h1>
+            <div class="lg:w-[65%] w-[100%] p-[17px] lg:p-0 flex flex-col space-y-4 font-['adobe-garamond-pro'] text-[rgba(26,26,26,.7)]">
+                <a href="event_details.php" class="text-[28px] text-[rgba(26,26,26,.9)]">{{event.title|truncatechars:70}}</a>
+                <div>
+                    <h1 class="text-[20px] font-['Roboto'] text-[rgba(26,26,26,.4)]">{{event.event_date|date:"l M d,Y"}}</h1>
+                    <h1 class="text-[20px] font-['Roboto'] text-[rgba(26,26,26,.4)]">{{event.event_start|date:"h:i A"}}  {{event.event_end|date:"h:i A"}}</h1>
+                </div>
+                <div>
+                    {{event.event_content|truncatewords:55|safe}}
+                </div>
             </div>
-            <p class="text-[18px] italic font-['adobe-garamond-pro']">The Security Distillery is excited to host the lecture with Mrs. Alessandra Morelli, where we will together engage in topics such as crisis management in hostile environments, the nexus between humanitarian aid and military contexts, counterterrorism and migration.</p>
         </div>
-    </div>
+    {% endfor %}
 </div>
 
 {% endblock bcgaMain %}

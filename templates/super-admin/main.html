@@ -8,6 +8,19 @@
     {% block sadminStyle %}{% endblock sadminStyle %}
 </head>
 <body>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}
+                {% include "notifications/success.html" %}
+            {% endif %}
+            {% if message.tags == 'warning' %}
+                    {% include "notifications/warning.html" %}
+            {% endif %}
+                 {% if message.tags == 'error' %}
+                    {% include "notifications/error.html" %}
+                 {% endif %}
+        {% endfor %}
+    {% endif %}
     <div class="relative flex min-h-screen">
         <div class="bg-cyan-600 text-cyan-100 w-60 space-y-2 px-2">
             <a href="#" class="flex justify-center py-4">Project</a>
