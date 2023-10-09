@@ -10,7 +10,7 @@
     {% for event in events %}
         <div class="w-[100%] flex lg:flex-row flex-col justify-between space-x-4">
             <div class="lg:w-[35%] w-[100%] p-[17px] lg:p-0">
-                <a href="{% url "bcga:event_detail" event.slug %}" class="flex justify-end"><img class="w-2/3 h-2/3" src="{{event.image.url}}" alt=""></a>
+                <a href="{% url "bcga:event_detail" event.slug %}"><img class="w-full" src="{{event.image.url}}" alt=""></a>
             </div>
             <div class="lg:w-[65%] w-[100%] p-[17px] lg:p-0 flex flex-col space-y-4 font-['adobe-garamond-pro'] text-[rgba(26,26,26,.7)]">
                 <a href="{% url "bcga:event_detail" event.slug %}" class="text-[28px] text-[rgba(26,26,26,.9)]">{{event.title|truncatechars:100}}</a>
