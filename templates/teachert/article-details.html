@@ -1,0 +1,11 @@
+{% extends "teachert/main.html" %}
+{% block teacherMain %}
+<div class="bg-cyan-600">
+    <div class="text-center py-4 text-3xl text-white">{{article.title}}</div>
+    
+</div>
+<div class="px-2">
+    {{article.artice_content|safe}}
+</div>
+
+{% endblock teacherMain %}
