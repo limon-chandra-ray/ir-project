@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-3*(#h9jds(z5gu=-5#x=(2=z%z@tb19e98s-&19ewd258su(ex'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*','bgbis.com','www.bgbis.com']
 
@@ -69,28 +69,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'bgbiscom_bgbis',
-#         'USER': 'bgbiscom_bgbis_ir_dept',
-#         'PASSWORD': 'bZ+Xzt8]cJoe',
-#         'HOST':'localhost',
-#         'PORT':'3306',
-#         'OPTIONS':{
-#             'charset': 'utf8mb4',
-#             'collation': 'utf8mb4_unicode_ci',
-#         },
-#     }
-# }
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ir_project',
-        'USER': 'root',
-        'PASSWORD': '',
+        'NAME': 'bgbiscom_bgbis',
+        'USER': 'bgbiscom_bgbis_ir_dept',
+        'PASSWORD': 'bZ+Xzt8]cJoe',
         'HOST':'localhost',
         'PORT':'3306',
         'OPTIONS':{
@@ -99,6 +83,22 @@ DATABASES = {
         },
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ir_project',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST':'localhost',
+#         'PORT':'3306',
+#         'OPTIONS':{
+#             'charset': 'utf8mb4',
+#             'collation': 'utf8mb4_unicode_ci',
+#         },
+#     }
+# }
 
 
 # Password validation
