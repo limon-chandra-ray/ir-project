@@ -3,7 +3,7 @@
     {% if page_info != '' %}
         <img class="lg:h-[72.6vh] h-[40vh] w-full" src="{{page_info.image.url}}" alt="">
     {% else %}
-        <img class="lg:h-[72.6vh] h-[40vh] w-full" src="https://th.bing.com/th/id/OIP.bXeJ_pb9EdW1X7BBZE_OegHaHa?pid=ImgDet&w=600&h=600&rs=1" alt="">
+        <img id="img" class="lg:h-[72.6vh] h-[40vh] w-full" src="https://th.bing.com/th/id/OIP.bXeJ_pb9EdW1X7BBZE_OegHaHa?pid=ImgDet&w=600&h=600&rs=1" alt="">
     {% endif %}
 {% endblock headerImage %}
 
@@ -15,7 +15,7 @@
     <h1 class="italic font-serif font-'Adobe Garamond Pro' lg:text-[24px] text-[16px] text-center">We aim to turn complex security issues into simple, quality, accessible information for</h1>
     <h1 class="italic font-serif font-'Adobe Garamond Pro' lg:text-[24px] text-[16px] text-center">students and researchers.</h1>
 </div>
-<a href="#" class="text-white uppercase bg-[#1989ae] py-2 px-6 rounded-2xl hover:bg-[#1191bb] font-semibold">Learn More</a>
+<a href="{% url 'bcga:about_us' %}" class="text-white uppercase bg-[#1989ae] py-2 px-6 rounded-2xl hover:bg-[#1191bb] font-semibold">Learn More</a>
 {% endblock headerText %}
 
 
@@ -35,71 +35,27 @@
         </div>
     </div>
     <div class="p-[17px] mt-[30px]">
-        <div class="flex justify-between">
-            <div>
-                <h1 class="font-semibold uppercase text-[rgba(26,26,26,.7)]">MOST RECENT ARTICLES</h1>
-            </div>
-            <div class="flex justify-end">
-                    <!-- Left Arrow Button -->
-                <button class="carousel-control " id="prevButton">
-                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-                    </svg>
-                </button>
-                
-                <!-- Right Arrow Button -->
-                <button class="carousel-control " id="nextButton">
-                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                    </svg>
-                </button>
-            </div>
+        <div>
+            <h1 class="font-semibold uppercase text-[rgba(26,26,26,.7)]">MOST RECENT ARTICLES</h1>
         </div>
-        <div class="mt-2">
-            <div class="">
-                <div class="carousel ">
-                    <div class="carousel-inner flex justify-between w-full">
-                        <!-- Slide 1 -->
-                        <div class="carousel-slide flex w-full">
-                            <div class="flex flex-col lg:flex-row justify-between w-full">
-                                {% for article in latest_article %}
-                                    <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
-                                        <img class="h-[204px]" src="{{article.image.url}}" alt="">
-                                        <a href="{% url "bcga:article_detial" article.slug %}" class=" text-[19px] uppercase text-[rgba(26,26,26,.7)]">{{article.title}}</a>
-                                        <div>
-                                            <h1 class="text-[rgba(26,26,26,.7)]">{{article.created_at|date:"M d,Y"}}</h1>
-                                            <h1 class="text-[rgba(26,26,26,.7)]">{{article.topic.name}} {{article.region.name}}</h1>
-                                        </div>
-                                        <div>
-                                            {{article.artice_content|truncatewords:50|safe}}
-                                        </div>
-                                        <a class="text-blue-400" href="{% url "bcga:article_detial" article.slug %}">Read More <span class="arrow">&rightarrow;</span></a>
-                                    </div>
-                                {% endfor %}
-                                
+        <div class="mt-4">
+            <div class="grid lg:grid-cols-3 grid-cols-1 w-full">
+                {% for article in latest_article %}
+                <div class="flex lg:w-[295px] w-[100%]">
+                    <div class="flex flex-col lg:flex-row justify-between w-[100%]">
+                        <div class="w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
+                            <a href="{% url "bcga:article_detial" article.slug %}"><img class="h-[204px] w-[100%]" src="{{article.image.url}}" alt=""></a>
+                            <a href="{% url "bcga:article_detial" article.slug %}" class=" text-[22px] uppercase text-[rgba(26,26,26,.7)]">{{article.title}}</a>
+                            <div>
+                                <h1 class="text-[rgba(26,26,26,.7)]">{{article.created_at|date:"M d,Y"}}</h1>
+                                <h1 class="text-[rgba(26,26,26,.7)]">{{article.topic.name}} {{article.region.name}}</h1>
                             </div>
-                        </div>
-                        <!-- Slide 2 -->
-                        <div class="carousel-slide flex w-[100%]">
-                            <div class="flex flex-col lg:flex-row justify-between w-[100%]">
-                                {% for article in latest_article2 %}
-                                    <div class="lg:w-[33%] w-[100%] flex flex-col space-y-2 mb-[50px] lg:mb-0">
-                                        <img class="h-[204px]" src="{{article.image.url}}" alt="">
-                                        <a href="{% url "bcga:article_detial" article.slug %}" class=" text-[19px] uppercase text-[rgba(26,26,26,.7)]">{{article.title}}</a>
-                                        <div>
-                                            <h1 class="text-[rgba(26,26,26,.7)]">{{article.created_at|date:"M d,Y"}}</h1>
-                                            <h1 class="text-[rgba(26,26,26,.7)]">{{article.topic.name}} {{article.region.name}}</h1>
-                                        </div>
-                                        <div>
-                                            {{article.artice_content|truncatewords:50|safe}}
-                                        </div>
-                                        <a class="text-blue-400" href="{% url "bcga:article_detial" article.slug %}">Read More <span class="arrow">&rightarrow;</span></a>
-                                    </div>
-                                {% endfor %}
-                            </div>
+                            <p>{{article.artice_content|truncatewords:50|safe}}</p>
+                            <a class="text-blue-400" href="{% url "bcga:article_detial" article.slug %}">Read More <span class="arrow">&rightarrow;</span></a>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -134,7 +90,7 @@
             </div>
             <div class="w-[100%] lg:w-[50%] flex justify-center items-center">
                 <div class="flex flex-col justify-center items-center space-y-4">
-                    <h1 class="text-[rgba(26,26,26,.7)] font-semibold">ABOUT1</h1>
+                    <h1 class="text-[rgba(26,26,26,.7)] font-semibold">ABOUT 1</h1>
                     <div class="flex flex-col justify-center items-center">
                         <h1 class="lg:text-[24px] text-[18px]">Find out about our Think Tank, our team</h1>
                         <h1 class="lg:text-[24px] text-[18px]">and our goals</h1>
@@ -146,7 +102,7 @@
         <div class="flex flex-col lg:flex-row flex-col-reverse space-y-8">
             <div class="w-[100%] lg:w-[50%] flex justify-center items-center">
                 <div class="mt-[30px] lg:mt-0 flex flex-col justify-center items-center space-y-4">
-                    <h1 class="text-[rgba(26,26,26,.7)] font-semibold">ABOUT2</h1>
+                    <h1 class="text-[rgba(26,26,26,.7)] font-semibold">ABOUT 2</h1>
                     <div class="flex flex-col justify-center items-center">
                         <h1 class="lg:text-[24px] text-[18px]">Find out about our Think Tank, our team</h1>
                         <h1 class="lg:text-[24px] text-[18px]">and our goals</h1>
@@ -160,7 +116,7 @@
         </div>
     </section>
     <div class="my-[50px] border-b border-solid border-[#ddd]"></div>
-    <div class="px-[17px]">
+    <div class="px-[17px] mb-[50px]">
         <div class="flex flex-col justify-center items-center space-y-4">
             <div>
                 <h1 class="text-[24px] font-semibold">FOLLOW US ON SOCIAL MEDIA</h1>
@@ -174,5 +130,21 @@
         </div>
     </div>
 </div>
-
+<script>
+    const main = document.getElementById("main");
+    const img = document.getElementById("img");
+    var currentURL = window.location.href;
+    var urlSegments = currentURL.split('/');
+    var lastSegment = urlSegments[urlSegments.length - 1];
+    if(lastSegment == '' || '#home'){
+        main.classList.remove("lg:h-[72.6vh]");
+        main.classList.remove("h-[40vh]");
+        img.classList.remove("lg:h-[72.6vh]");
+        img.classList.remove("h-[40vh]");
+        main.classList.add("lg:h-[100vh]");
+        main.classList.add("h-[80vh]");
+        img.classList.add("lg:h-[100vh]");
+        img.classList.add("h-[80vh]");
+    }
+</script>
 {% endblock bcgaMain %}
