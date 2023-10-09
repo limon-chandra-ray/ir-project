@@ -9,8 +9,8 @@ from user.models import CustomUser
 from studentTeam.models import StudentProfile,Student
 from teacherTeam.models import TeacherProfile,Teacher
 from article.models import TopicArticle,Event
-
-
+from django.contrib.auth.hashers import make_password
+from django.conf import settings
 
 # Create your views here.
 
@@ -190,8 +190,8 @@ def student_add(request):
             return redirect('sadmin:student_team_list')
 
     return render(request,'super-admin/student-team/add.html')
-# def student_edit(request):
-#     if request.method == 'POST':
+
+
 @login_required(login_url='/super-admin/log-in')
 @admin_access_only()
 def student_get(request):
@@ -243,6 +243,25 @@ def student_profile_edit(request):
         else:
             print('not')
         return redirect('sadmin:student_team_list')
+    
+@login_required(login_url='/super-admin/log-in')
+@admin_access_only()   
+def student_password_change(request):
+    if request.method == 'POST':
+        student_id = request.POST['passwordeditstudent']
+        password = request.POST['change_password']
+        con_password = request.POST['con_change_password']
+        if password == con_password:
+            create_password = make_password(con_password) 
+            CustomUser.objects.filter(id = int(student_id)).update(
+                password = create_password
+            )
+            messages.add_message(request,messages.SUCCESS,"Password Change Successfully")
+        else:
+            messages.add_message(request,messages.ERROR,"Password not match")    
+    else:
+        messages.add_message(request,messages.ERROR,"Password not Change")
+    return redirect('sadmin:student_team_list')
 @login_required(login_url='/super-admin/log-in')
 @admin_access_only()    
 def student_profile_delete(request,user_id):
@@ -346,6 +365,24 @@ def teacher_team_edit(request):
 def teacher_profile_delete(request,user_id):
     CustomUser.objects.filter(id = user_id).delete()
     return redirect("sadmin:teacher_team_list")
+@login_required(login_url='/super-admin/log-in')
+@admin_access_only()   
+def teacher_password_change(request):
+    if request.method == 'POST':
+        teacher_id = request.POST['passwordeditteacher']
+        password = request.POST['change_password']
+        con_password = request.POST['con_change_password']
+        if password == con_password:
+            create_password = make_password(con_password) 
+            CustomUser.objects.filter(id = int(teacher_id)).update(
+                password = create_password
+            )
+            messages.add_message(request,messages.SUCCESS,"Password Change Successfully")
+        else:
+            messages.add_message(request,messages.ERROR,"Password not match")    
+    else:
+        messages.add_message(request,messages.ERROR,"Password not Change")
+    return redirect('sadmin:teacher_team_list')
 # end teacher team
 @login_required(login_url='/super-admin/log-in')
 @admin_access_only()
@@ -430,3 +467,10 @@ def gallery_photo_save(request):
             messages.add_message(request,messages.SUCCESS,'Gallery Photo add successfully')
 
     return redirect("sadmin:gallery_photo")
+
+
+def photo_delete(request,image_id):
+    delete_image = Gallery.objects.filter(id = image_id).delete()
+    if delete_image:
+        messages.add_message(request,messages.SUCCESS,'Gallery Photo delete successfully')
+        return redirect("sadmin:gallery_photo")

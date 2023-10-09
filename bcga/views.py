@@ -1,7 +1,12 @@
 from django.shortcuts import render,redirect
 from django.urls import reverse
 from django.http import JsonResponse
-from ir_project.models import (Topic,Region,Interview,Podcast,UserContact,UserSubcribe)
+from ir_project.models import (Topic,Region,
+                               Interview,
+                               Podcast,UserContact,
+                               UserSubcribe,
+                               Gallery
+                               )
 from article.models import (TopicArticle,
                             Event,
                             Comment,
@@ -18,10 +23,12 @@ from django.contrib import messages
 def home(request):
     latest_article1 = TopicArticle.objects.all().order_by('-id')[:3]
     latest_article2 = TopicArticle.objects.all().order_by('-id')[3:6]
+    latest_event = Event.objects.all().order_by('-id')[:3]
     context={
         'page_info':'',
         'latest_article':latest_article1,
-        'latest_article2':latest_article2
+        'latest_article2':latest_article2,
+        'latest_event':latest_event
     }
     return render(request,'bcga/home.html',context)
 
@@ -46,9 +53,11 @@ def topic(request,topic):
 
 def article_detial(request,topic_article):
     article = TopicArticle.objects.get(slug = topic_article)
-    print(topic_article)
+    comment = article.comment_set.all()
+    print(comment)
     context ={
-        'article':article
+        'article':article,
+        'comments':comment
     }
     return render(request,'bcga/article_details.html',context)
 
@@ -203,4 +212,15 @@ def teacher_team(request):
     }
     return render(request,'bcga/teacher-team.html',context)
 def archive_view(request):
-    return render(request,'bcga/archive.html')
+    gallery_photos = Gallery.objects.all().order_by('-id')[:9]
+    context = {
+        'gallery_photos':gallery_photos
+    }
+    return render(request,'bcga/archive.html',context)
+
+
+# Error 404 and 500 Handler 
+def error_404_view(request,exception):
+    return render(request,'notifications/error_404.html')
+def error_500_view(request):
+    return render(request,'notifications/error_500.html')

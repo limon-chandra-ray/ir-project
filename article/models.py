@@ -39,11 +39,18 @@ class Comment(models.Model):
     article = models.ForeignKey(TopicArticle,on_delete=models.CASCADE)
     user_name = models.CharField(max_length=100)
     comment_text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True,null=True,blank=True)
+    updated_at = models.DateTimeField(auto_now=True,null=True,blank=True)
 
     def __str__(self):
         return self.user_name
-    
 
+class TopicError(models.Model):
+    topic = models.ForeignKey(TopicArticle,on_delete=models.CASCADE)
+    tacher = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+    error_text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 class Event(models.Model):

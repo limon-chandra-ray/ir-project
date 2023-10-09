@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from studentTeam.forms import StudentTeamForm
-from ir_project.models import Topic
+from ir_project.models import Topic,Region
 from .models import StudentProfile
 from article.models import TopicArticle,Event,EventParticipate
 from ir_project.decorators import student_access_only
@@ -61,10 +61,11 @@ def article_view(request):
 @student_access_only()
 def create_article_view(request):
     topics = Topic.objects.exclude(name = 'All Articles')
-    forms = StudentTeamForm()
+    regions = Region.objects.all().order_by('name')
+
     context = {
-        'forms':forms,
-        'topics':topics
+        'topics':topics,
+        'regions':regions
     }
     return render(request,'studentt/create-article.html',context)
 @login_required(login_url='/student/log-in')
@@ -73,11 +74,13 @@ def create_article_save(request):
     title = request.POST['title']
     topic = request.POST['topic_id']
     image = request.FILES['image']
+    region = request.POST['region_id']
     article_content = request.POST['article_content'] 
     topic_article = TopicArticle.objects.create(
         topic = Topic.objects.get(id = int(topic)),
         title = title,
         image = image,
+        region = Region.objects.get(id = int(region)),
         artice_content = article_content
     )
     topic_article.save()
