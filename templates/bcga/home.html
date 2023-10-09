@@ -3,7 +3,7 @@
     {% if page_info != '' %}
         <img class="lg:h-[72.6vh] h-[40vh] w-full" src="{{page_info.image.url}}" alt="">
     {% else %}
-        <img id="img" class="lg:h-[72.6vh] h-[40vh] w-full" src="https://th.bing.com/th/id/OIP.bXeJ_pb9EdW1X7BBZE_OegHaHa?pid=ImgDet&w=600&h=600&rs=1" alt="">
+        <img id="img" class="lg:h-[100vh] h-[80vh] w-full" src="https://th.bing.com/th/id/OIP.bXeJ_pb9EdW1X7BBZE_OegHaHa?pid=ImgDet&w=600&h=600&rs=1" alt="">
     {% endif %}
 {% endblock headerImage %}
 
@@ -130,7 +130,7 @@
         </div>
     </div>
 </div>
-<script>
+<!-- <script>
     const main = document.getElementById("main");
     const img = document.getElementById("img");
     var currentURL = window.location.href;
@@ -146,5 +146,5 @@
         img.classList.add("lg:h-[100vh]");
         img.classList.add("h-[80vh]");
     }
-</script>
+</script> -->
 {% endblock bcgaMain %}
