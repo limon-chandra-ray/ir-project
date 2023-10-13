@@ -85,7 +85,7 @@ def create_article_save(request):
     )
     topic_article.save()
 
-    return redirect('studentTeam:home')
+    return redirect('studentTeam:article_view')
 @login_required(login_url='/student/log-in')
 @student_access_only()
 def articleDetail(request,articleSlug):
