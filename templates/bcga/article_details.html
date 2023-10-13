@@ -14,10 +14,11 @@
     <div class="font-['adobe-garamond-pro'] text-[18px] font-[400px] text-[rgba(26,26,26,.7)] leading-[1.6rem]">
         {{article.artice_content|safe}}
     </div>
-    <div class="flex space-x-4 font-['adobe-garamond-pro'] text-[18px] font-[600px] text-[rgba(26,26,26,.7)]">
-        <button type="button" id="topic_comment" data-article="{{article.id}}">Comment</button>
+    <div class="flex items-center space-x-4 font-['adobe-garamond-pro'] text-[18px] font-[600px] text-[rgba(26,26,26,.7)]">
+        
         <p><i class="fas fa-heart"></i> 5 Like</p>
         <p><i class="fas fa-share-alt"></i> Share</p>
+        <button type="button" id="topic_comment" class="px-4 py-2 rounded-md bg-amber-500 hover:bg-amber-600" data-article="{{article.id}}">Comment</button>
     </div>
     {% for comment in comments %}
     <div>
