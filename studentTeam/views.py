@@ -99,9 +99,11 @@ def articleDetail(request,articleSlug):
 def articleEdit(request,articleSlug):
     article = TopicArticle.objects.get(slug=articleSlug)
     topics = Topic.objects.all().order_by('name')
+    regions = Region.objects.all().order_by('name')
     if request.method == 'POST':
         title = request.POST['title']
         topic = request.POST['topic_id']
+        region = request.POST['region_id']
         try:
             image = request.FILES['image']
         except:
@@ -109,6 +111,7 @@ def articleEdit(request,articleSlug):
         article_content = request.POST['article_content'] 
         topic_article = TopicArticle.objects.get(slug =articleSlug)
         topic_article.topic = Topic.objects.get(id = int(topic))
+        topic_article.region = Region.objects.get(id = int(region))
         topic_article.title = title
         topic_article.artice_content = article_content
         if image !=' ':
@@ -119,7 +122,8 @@ def articleEdit(request,articleSlug):
     else:
         context = {
             'article':article,
-            'topics':topics
+            'topics':topics,
+            'regions':regions
         }
         return render(request,'studentt/article-edit.html',context)
 @login_required(login_url='/student/log-in')
