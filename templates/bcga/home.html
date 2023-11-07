@@ -1,15 +1,16 @@
 {% extends 'bcga/basic/main.html' %}
+{% load static %}
 {% block headerImage %}
     {% if page_info != '' %}
-        <img class="lg:h-[72.6vh] h-[40vh] w-full" src="{{page_info.image.url}}" alt="">
+        <img class="relative lg:h-[72.6vh] h-[40vh] w-full" src="{{page_info.image.url}}" alt="">
     {% else %}
-        <img id="img" class="lg:h-[100vh] h-[80vh] w-full" src="https://th.bing.com/th/id/OIP.bXeJ_pb9EdW1X7BBZE_OegHaHa?pid=ImgDet&w=600&h=600&rs=1" alt="">
+        <img id="img" class="relative lg:h-[100vh] h-[80vh] w-full object-cover" src="https://images.squarespace-cdn.com/content/v1/5d94a2dd7046bc4760c90517/1597913072762-XI251GVFQUG0Q799NLF7/image-asset.jpeg" alt="">
     {% endif %}
 {% endblock headerImage %}
 
 {% block headerText %}
 <h1 class="italic font-serif font-'Adobe Garamond Pro' lg:text-[24px] text-[16px]">Simplifying Matters</h1>
-<h1 class="text-[36px] font-semibold">Bangabandhu Center for International Studies</h1>
+<h1 class="lg:text-[42px] text-[28px] font-semibold">Bangabandhu Center for International Studies</h1>
 <div class="flex flex-col justify-center items-center">
     <h1 class="italic font-serif font-'Adobe Garamond Pro' lg:text-[24px] text-[16px] text-center">The Bangabandhu Center for International Studies is an initiative from students for students.</h1>
     <h1 class="italic font-serif font-'Adobe Garamond Pro' lg:text-[24px] text-[16px] text-center">We aim to turn complex security issues into simple, quality, accessible information for</h1>
@@ -86,13 +87,13 @@
     <section class="px-[17px]">
         <div class="flex flex-col lg:flex-row space-y-8">
             <div class="w-[100%] lg:w-[50%]">
-                <img class="w-[100%] h-[300px]" src="https://th.bing.com/th/id/R.8bd3655e1181c031e3c2d7e5548d1923?rik=nk2bPs8JKQ2R%2bA&riu=http%3a%2f%2fwww.dhakaopinion.com%2fwp-content%2fuploads%2f2019%2f11%2fversity_picture-01.jpg&ehk=ICGwq9PwBZFnvfOYz0vLh2F0RmTPaQ3WWRiY%2fUbLrbI%3d&risl=&pid=ImgRaw&r=0" alt="">
+                <img class="w-[100%] h-[300px]" src="{% static 'images/university.jpg' %}" alt="">
             </div>
             <div class="w-[100%] lg:w-[50%] flex justify-center items-center">
                 <div class="flex flex-col justify-center items-center space-y-4">
                     <h1 class="text-[rgba(26,26,26,.7)] font-semibold">ABOUT</h1>
                     <div class="flex flex-col justify-center items-center">
-                        <h1 class="lg:text-[24px] text-[18px]">Find out about our Think Tank, our team</h1>
+                        <h1 class="lg:text-[24px] text-[18px]">Find out about us, our team</h1>
                         <h1 class="lg:text-[24px] text-[18px]">and our goals</h1>
                     </div>
                     <a href="{% url 'bcga:contact_us' %}" class="text-white uppercase bg-[#1989ae] py-2 px-6 rounded-2xl hover:bg-[#1191bb] font-semibold">Learn More</a>
@@ -110,7 +111,7 @@
                 </div>
             </div>
             <div class="w-[100%] lg:w-[50%]">
-                <img class="w-[100%] h-[300px]" src="https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/277776800_1983380991853538_6219774402692156987_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=52f669&_nc_eui2=AeGWUZCHdypbwnlXfLToLZZKooiPLwysIhiiiI8vDKwiGMGtCQIfqkLgqkGkcuKbR5g9B2lcYjDcg7SssFli26Ij&_nc_ohc=c-dJlX9kYd0AX9G1h1q&_nc_ht=scontent.fjsr8-1.fna&oh=00_AfArhiDaxyjvmuuQXGXZvv5KSxUIaZy1_crIOHXU8EuGHA&oe=65298D9A" alt="">
+                <img class="w-[100%] h-[300px]" src="{% static 'images/ir-home.jpg' %}" alt="">
             </div>
         </div>
     </section>
