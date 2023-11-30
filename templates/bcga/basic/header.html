@@ -1,9 +1,10 @@
+{% load static %}
 <div class="relative">
     <div class="text-[16px] font-semibold uppercase">
         <nav class=" p-4">
             <div class=" flex justify-between items-center">
                 <div class="text-white font-bold text-xl">
-                    <a href="{% url 'bcga:home' %}"><img class="h-[50px] lg:h-[100px] w-[54.475px] lg:w-[108.963px]" src="https://th.bing.com/th/id/R.572e4f51d0a4d67669784df53026b5a7?rik=lv9i04y8yl33Dg&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2f3%2f33%2fVanamo_Logo.png&ehk=Ix3NOUWRAegY6L3gmUWwTNm0Gee%2faq3jB0ZwGhiKFRk%3d&risl=&pid=ImgRaw&r=0" alt=""></a>
+                    <a href="{% url 'bcga:home' %}"><img class="h-[50px] lg:h-[100px] w-[54.475px] lg:w-[108.963px] rounded-2xl" src="{% static 'images/logo.jpg' %}" alt=""></a>
                 </div>
                 <div class="hidden lg:block space-x-6">
                     <a href="{% url 'bcga:home' %}" class="text-white">Home</a>

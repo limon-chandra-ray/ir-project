@@ -4,7 +4,7 @@
     {% if page_info != '' %}
         <img class="relative lg:h-[72.6vh] h-[40vh] w-full" src="{{page_info.image.url}}" alt="">
     {% else %}
-        <img id="img" class="relative lg:h-[100vh] h-[80vh] w-full object-cover" src="https://images.squarespace-cdn.com/content/v1/5d94a2dd7046bc4760c90517/1597913072762-XI251GVFQUG0Q799NLF7/image-asset.jpeg" alt="">
+        <img id="img" class="relative lg:h-[100vh] h-[80vh] w-full object-cover" src="{% static 'images/home-header.jpeg' %}" alt="">
     {% endif %}
 {% endblock headerImage %}
 
@@ -87,7 +87,7 @@
     <section class="px-[17px]">
         <div class="flex flex-col lg:flex-row space-y-8">
             <div class="w-[100%] lg:w-[50%]">
-                <img class="w-[100%] h-[300px]" src="{% static 'images/university.jpg' %}" alt="">
+                <img class="w-[100%] h-[300px] object-cover" src="{% static 'images/logo2.jpg' %}" alt="">
             </div>
             <div class="w-[100%] lg:w-[50%] flex justify-center items-center">
                 <div class="flex flex-col justify-center items-center space-y-4">
@@ -111,7 +111,7 @@
                 </div>
             </div>
             <div class="w-[100%] lg:w-[50%]">
-                <img class="w-[100%] h-[300px]" src="{% static 'images/ir-home.jpg' %}" alt="">
+                <img class="w-[100%] h-[300px] object-cover" src="{% static 'images/ir-home.jpg' %}" alt="">
             </div>
         </div>
     </section>
